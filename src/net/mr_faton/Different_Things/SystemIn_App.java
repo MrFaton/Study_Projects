@@ -9,8 +9,7 @@ public class SystemIn_App {
     public static void main(String[] args) throws IOException {
         while (true) {
             int ch = System.in.read();
-            System.out.print((char) ch);
-            System.out.println((char) ch);
+            System.out.println("фраза: "+(char) ch);
         }
     }
 }
