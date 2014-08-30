@@ -1,4 +1,4 @@
-package net.mr_faton.exceptions.App03;
+package net.mr_faton.exceptions;
 
 /**
  * Created by root on 26.08.2014.

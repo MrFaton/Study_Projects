@@ -1,4 +1,4 @@
-package net.mr_faton.exceptions.TestApp05;
+package net.mr_faton.exceptions;
 
 /**
  * Created by root on 30.08.2014.
@@ -6,9 +6,9 @@ package net.mr_faton.exceptions.TestApp05;
 public class TestApp05 {
     public static void main(String[] args) {
         System.err.println("f-before");
-        try{
+        try {
             f();
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.err.println("f-catch");
         }
         System.err.println("f-after");

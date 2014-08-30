@@ -1,4 +1,4 @@
-package net.mr_faton.exceptions.App02;
+package net.mr_faton.exceptions;
 
 import java.io.IOException;
 
