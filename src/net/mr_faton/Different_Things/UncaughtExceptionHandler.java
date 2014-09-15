@@ -7,11 +7,11 @@ import java.io.FileInputStream;
  */
 public class UncaughtExceptionHandler {
     public static void main(String[] args) throws Exception{
-//        Thread.currentThread().setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-//            public void uncaughtException(Thread t, Throwable e) {
-//                System.out.println("Плохо.., проблемки с потоком "+t+" и вылетели по эксепшонсу "+e.getClass());
-//            }
-//        });
+        Thread.currentThread().setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println("Плохо.., проблемки с потоком "+t+" и вылетели по эксепшонсу "+e.getClass());
+            }
+        });
         new FileInputStream ("  dadsfasf  ");
     }
 }
