@@ -7,15 +7,18 @@ import java.util.Arrays;
  */
 public class App01 {
     public static void main(String[] args) {
-        testCodePoint(65);
+        testCodePoint(65);//Номер символа в таблице Unicode или его codepoint
         testCodePoint(9819);
         testCodePoint(476);
         testCodePoint(10_000);//можно ставить в цифрах подчёркивание
         testCodePoint(50_000);
         testCodePoint(165_000); // один символ, с длиной строки 2, так как кодируется в 2 чара, но по одному эти чары не имеют смысла при выводе, и тут 1 кодепоинт
+        testCodePoint(9_773);
+        testCodePoint(9_822);
+
     }
     private static void testCodePoint(int codePoint){
-        char[] charArray=Character.toChars(codePoint);
+        char[] charArray=Character.toChars(codePoint);//Символ может быть представлен только как массив чаров, который равен классу-обёртке (Character). Потому что иногда для представления одного символа необходимо несколько чаров
         System.out.println("char[]: "+ Arrays.toString(charArray));
         String str=new String(charArray);
         System.out.println("String: "+str);
