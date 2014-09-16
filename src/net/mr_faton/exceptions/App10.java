@@ -11,7 +11,7 @@ public class App10 {
             } catch (Error e) {
                 throw new RuntimeException(e);
             }
-        } catch (RuntimeException x){
+        } catch (RuntimeException x) {
             System.out.println(x);
             System.out.println(x.getCause());
             System.out.println(x.getCause().getCause());

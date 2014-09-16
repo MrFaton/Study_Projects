@@ -5,7 +5,7 @@ package net.mr_faton.exceptions;
  */
 public class App17 {
     public static void main(String[] args) {
-        Error er=new Error("first Error");
+        Error er = new Error("first Error");
         er.addSuppressed(new Error("second Error"));
         er.addSuppressed(new Error("third Error"));
         throw er;

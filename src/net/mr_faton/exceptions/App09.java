@@ -11,7 +11,7 @@ public class App09 {
             } catch (Error e) {
                 throw new RuntimeException(e);
             }
-        } catch (RuntimeException x){
+        } catch (RuntimeException x) {
             throw new Exception(x);
         }
     }

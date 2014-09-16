@@ -5,7 +5,7 @@ package net.mr_faton.exceptions;
  */
 public class App16 {
     public static void main(String[] args) {
-        try (FailClose x=new FailClose("xxx"); FailClose y = new FailClose("yyy")){
+        try (FailClose x = new FailClose("xxx"); FailClose y = new FailClose("yyy")) {
             System.err.println("body");
         }
     }
