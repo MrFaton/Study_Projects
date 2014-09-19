@@ -14,12 +14,12 @@ public class App00 {
         System.out.println(chars[2]);
         System.out.println(chars[3]);
         System.out.println(chars[3] + 0);// здесь получается, что мы уже не оперируем типом char, а перешли на тип int
-        System.out.println((int)chars[3]);//тоже самое что и выше, только тут принудительно переобразуем тип char в int
+        System.out.println((int) chars[3]);//тоже самое что и выше, только тут принудительно переобразуем тип char в int
         System.out.println(chars[3]);
 
         String str1 = new String(bytes0, "cp1251");
         System.out.println(str1);//хотя используем разные кодировки (правила), но выводит одни и те же символы, потому что у UTF-8 и cp1251 первые 127 символом совпадают. Если загуглить ASCII table (ASCII - кодировка, которая была ещё до Unicode), то в таблице будут видны все эти значения, т.е. чему соответствует char[70]=F
-        byte[] bb={};
+        byte[] bb = {};
         String str2 = new String(bb, "Unicode");
         System.out.println(str2);
 

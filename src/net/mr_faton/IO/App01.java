@@ -17,13 +17,14 @@ public class App01 {
         testCodePoint(9_822);
 
     }
-    private static void testCodePoint(int codePoint){
-        char[] charArray=Character.toChars(codePoint);//Символ может быть представлен только как массив чаров, который равен классу-обёртке (Character). Потому что иногда для представления одного символа необходимо несколько чаров
-        System.out.println("char[]: "+ Arrays.toString(charArray));
-        String str=new String(charArray);
-        System.out.println("String: "+str);
-        System.out.println("String.length: "+str.length()); //метод длина строки иногда врёт, как, например для кодепоинта (символа) с номером 165000, для его отображение нужно 2 чара, поэтому есть метод codePointCount, который показывает длину символов
-        System.out.println("String.codePointCount: "+str.codePointCount(0, str.length()));
+
+    private static void testCodePoint(int codePoint) {
+        char[] charArray = Character.toChars(codePoint);//Символ может быть представлен только как массив чаров, который равен классу-обёртке (Character). Потому что иногда для представления одного символа необходимо несколько чаров
+        System.out.println("char[]: " + Arrays.toString(charArray));
+        String str = new String(charArray);
+        System.out.println("String: " + str);
+        System.out.println("String.length: " + str.length()); //метод длина строки иногда врёт, как, например для кодепоинта (символа) с номером 165000, для его отображение нужно 2 чара, поэтому есть метод codePointCount, который показывает длину символов
+        System.out.println("String.codePointCount: " + str.codePointCount(0, str.length()));
         System.out.println();
     }
 }

@@ -5,9 +5,9 @@ package net.mr_faton.Different_Things;
  */
 public class inputFormatData {
     public static void main(String[] args) {
-        int x=10;
-        int y=0x10;//десятиричный формат
-        int z=010;//восьмеричный формат
+        int x = 10;
+        int y = 0x10;//десятиричный формат
+        int z = 010;//восьмеричный формат
         int k = 0b10;//двоичный формат
 
         System.out.println(x);
