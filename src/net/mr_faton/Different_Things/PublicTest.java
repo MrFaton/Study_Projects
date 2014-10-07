@@ -1,24 +1,26 @@
 package net.mr_faton.Different_Things;
 
+import java.util.*;
 
-import java.io.*;
-import java.net.URL;
+import static java.util.Arrays.asList;
 
 /**
  * Created by Faton on 16.09.2014.
  */
 public class PublicTest {
-    public static void main(String[] args) throws IOException {
-        InputStream src = new URL("http://expogas.net/").openStream();
-        OutputStream dst = new FileOutputStream("c:/tempIO.txt");
-        copy(src, dst);
+    public static void main(String[] args) {
+        List<String> listArrayList = new ArrayList<>(asList("A", "B", "C"));
+        List<String> listLinkedList = new LinkedList<>(asList("D", "E", "F"));
+        Set<Integer> listHashSet = new HashSet<>(asList(1, 2, 3));
+
+        testWay(listArrayList);
+        testWay(listLinkedList);
+        testWay(listHashSet);
     }
 
-    public static void copy(InputStream src, OutputStream dst) throws IOException {
-        int data;
-        for (int k = 0; k < 3; k++) {
-            data = src.read();
-            dst.write(data);
+    public static void testWay(Collection list) {
+        for (Object elem : list) {
+            System.out.println(elem);
         }
     }
 }
