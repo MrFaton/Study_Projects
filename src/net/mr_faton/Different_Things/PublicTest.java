@@ -1,26 +1,26 @@
 package net.mr_faton.Different_Things;
 
-import java.util.*;
-
-import static java.util.Arrays.asList;
-
 /**
  * Created by Faton on 16.09.2014.
  */
 public class PublicTest {
     public static void main(String[] args) {
-        List<String> listArrayList = new ArrayList<>(asList("A", "B", "C"));
-        List<String> listLinkedList = new LinkedList<>(asList("D", "E", "F"));
-        Set<Integer> listHashSet = new HashSet<>(asList(1, 2, 3));
-
-        testWay(listArrayList);
-        testWay(listLinkedList);
-        testWay(listHashSet);
+        long a=3;
+        long b=4;
+        System.out.println("a="+a+" b="+b);
+        System.out.println(pow(a,b));
     }
-
-    public static void testWay(Collection list) {
-        for (Object elem : list) {
-            System.out.println(elem);
+    public static long pow (long a, long b){
+        if (b==0){
+            return 1;
+        } else if (b==1){
+            return a;
+        } else {
+            long x=1;
+            for (int k=0;k<b;k++){
+                x=x*a;
+            }
+            return x;
         }
     }
 }
