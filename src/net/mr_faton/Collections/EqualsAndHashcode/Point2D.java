@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by root on 17.10.2014.
  */
-public class Point2D {
+public class Point2D implements Comparable<Point2D> {
     private final int x;
     private final int y;
 
@@ -39,6 +39,16 @@ public class Point2D {
     public int hashCode() {
 //        return 0;//можно возвращать 0, но это превращает HashSet в LinkedList, то есть заставляет HashSet работать медленно
 //        return x+y;//работает быстрее чем return 0
-        return 31*x+y;//теперь HashSet работает максимально быстро
+        return 31 * x + y;//теперь HashSet работает максимально быстро
+    }
+
+    @Override //сравниваем по х, если они одинаковые, сравниваем по у
+    public int compareTo(Point2D anotherExemplar) {
+        int dX = this.x - anotherExemplar.x;
+        if (dX != 0) {
+            return dX;
+        } else {
+            return this.y - anotherExemplar.y;
+        }
     }
 }

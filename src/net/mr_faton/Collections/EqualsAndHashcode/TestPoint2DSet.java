@@ -10,7 +10,7 @@ public class TestPoint2DSet {
     public static void main(String[] args) {
         Set<Point2D> set = new HashSet<>();
         set.add(new Point2D(1, 1));
-        set.add(new Point2D(1,1));
+        set.add(new Point2D(1, 1));
         System.out.println(set);
         System.out.println(set.contains(new Point2D(1, 1)));
         System.out.println(set.remove(new Point2D(1, 1)));

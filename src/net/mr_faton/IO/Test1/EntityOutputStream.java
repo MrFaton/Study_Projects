@@ -18,7 +18,7 @@ public class EntityOutputStream implements EntityOutput {
     @Override
     public void writePerson(Person person) throws IOException {
         out.writeInt(person.getAge());
-        if (person.getName()==null){
+        if (person.getName() == null) {
             out.writeBoolean(false);
         } else {
             out.writeBoolean(true);
@@ -28,7 +28,7 @@ public class EntityOutputStream implements EntityOutput {
 
     @Override
     public void writePoint(Point point) throws IOException {
-        int value=point.getX()<<4|point.getY();
+        int value = point.getX() << 4 | point.getY();
         out.writeByte(value);
     }
 }
