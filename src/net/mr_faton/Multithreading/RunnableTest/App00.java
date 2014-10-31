@@ -11,6 +11,6 @@ public class App00 {
         r0.run();
         r1.run();
 
-        System.out.println("Имя класса: "+r0.getClass().getName());//Можно посмотреть имя класса
+        System.out.println("Имя класса: " + r0.getClass().getName());//Можно посмотреть имя класса
     }
 }

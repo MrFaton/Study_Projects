@@ -8,7 +8,7 @@ import net.mr_faton.Multithreading.RunnableTest.RunnableImpl;
 public class App00 {
     public static void main(String[] args) {
         Runnable r = new RunnableImpl();
-        Thread newThread=new Thread(r);
+        Thread newThread = new Thread(r);
         newThread.start();
     }
 }

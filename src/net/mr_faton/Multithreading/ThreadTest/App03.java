@@ -15,7 +15,7 @@ public class App03 {
             }
         }).start();
 
-        for (int m=0; m<5; m++){
+        for (int m = 0; m < 5; m++) {
             sillyWork();
             System.out.println("Главный поток: Bye!");
         }
