@@ -5,7 +5,7 @@ package net.mr_faton.Multithreading.LB;
  */
 public class Rabbit_Attac_Done {
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
             Runnable printer = new PrintRunnable_Done(i);
             Thread thread = new Thread(printer);
             thread.start();

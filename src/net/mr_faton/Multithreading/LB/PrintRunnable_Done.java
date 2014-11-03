@@ -24,11 +24,11 @@ public class PrintRunnable_Done implements Runnable {
         Runnable printer = new PrintRunnable_Done(count + 1);
         Thread thread = new Thread(printer);
         thread.start();
-//        try {
-//            Thread.sleep(100);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static String spaces(int count) {
