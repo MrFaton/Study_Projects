@@ -19,15 +19,15 @@ public class PrintRunnable_Done implements Runnable {
                 throw new RuntimeException(e);
             }
             System.out.println(spaces(count) + count);
-        }
 
-        Runnable printer = new PrintRunnable_Done(count + 1);
-        Thread thread = new Thread(printer);
-        thread.start();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Runnable newRunnabl = new PrintRunnable_Done(count + 1);
+            Thread newThread = new Thread(newRunnabl);
+            newThread.start();
+            try {
+                newThread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
