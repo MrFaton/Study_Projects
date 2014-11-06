@@ -11,8 +11,8 @@ public class ProducerConsumerExample_3x2 {
         new Thread(new Producer(100, 500, buffer)).start();
         new Thread(new Producer(1000, 700, buffer)).start();
 
-        new Thread(new Consumer(buffer)).start();
-        new Thread(new Consumer(buffer)).start();
+        new Thread(new Consumer(buffer, 1)).start();
+        new Thread(new Consumer(buffer,2 )).start();
     }
 }
 //Пример, где 3 производителя и 2 потребителя

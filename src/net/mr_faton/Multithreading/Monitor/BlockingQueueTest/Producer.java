@@ -18,7 +18,7 @@ public class Producer implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println(startValue + " Произведено");
+                System.out.println(System.currentTimeMillis() + ": " + startValue + " Произведено");
                 buffer.put(startValue++);//Тут мы сначала положили в буффер значение startValue, а потом добавили ему единицу, а также, если буффер заполнен, то мы повисаем тут до тех пор, пока не сможем положить элемент в буффер
                 Thread.sleep(period);
             } catch (InterruptedException e) {

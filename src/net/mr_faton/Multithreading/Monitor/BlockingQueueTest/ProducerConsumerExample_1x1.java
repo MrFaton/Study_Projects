@@ -12,7 +12,7 @@ public class ProducerConsumerExample_1x1 {
         } catch (InterruptedException e) {
             //nothing
         }
-        new Thread(new Consumer(buffer)).start();
+        new Thread(new Consumer(buffer, 1)).start();
     }
 }
 /*Пример, когда в начале производитель заполняет буффер, а потрпебителя ещё нет, потрибитель приходит через 5 секунд,

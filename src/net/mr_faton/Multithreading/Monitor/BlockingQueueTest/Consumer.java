@@ -5,9 +5,11 @@ package net.mr_faton.Multithreading.Monitor.BlockingQueueTest;
  */
 public class Consumer implements Runnable {
     private final SingleElementBuffer buffer;
+    private final int id;
 
-    public Consumer(SingleElementBuffer buffer) {
+    public Consumer(SingleElementBuffer buffer, int id) {
         this.buffer = buffer;
+        this.id = id;
     }
 
     @Override
@@ -15,7 +17,7 @@ public class Consumer implements Runnable {
         while (true) {
             try {
                 Integer elem = buffer.get();
-                System.out.println(elem + " был употреблён");
+                System.out.println(System.currentTimeMillis() + ": " + elem + " было употреблено " + id);
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread().getName() + " был остановлен");
                 return;

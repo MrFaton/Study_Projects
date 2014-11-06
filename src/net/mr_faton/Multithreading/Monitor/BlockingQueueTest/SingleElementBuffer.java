@@ -8,19 +8,20 @@ public class SingleElementBuffer {
 
     public synchronized void put(int newElem) throws InterruptedException {
         while (this.elem != null) {
-            this.wait();
+            this.wait();//описание метода приведено ниже
         }
         this.elem = newElem;
-        this.notifyAll();
+        this.notifyAll();//описание метода приведено ниже // notifyAll - будит всех, кто ждал в get
     }
 
     public synchronized int get() throws InterruptedException {
         while (this.elem == null) {
-            this.wait();
+            this.wait();//описание метода приведено ниже
         }
         Integer result = this.elem;
         this.elem = null;
-        this.notifyAll();
+        this.notifyAll();//описание метода приведено ниже
         return result;
     }
 }
+//wait, notify, notifyAll можно вызывать у нестатического синхронизированного метода, т.е. вызывать можну у this
