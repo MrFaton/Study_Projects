@@ -5,8 +5,8 @@ package net.mr_faton.Multithreading;
  */
 public class App05 {
     public static void main(String[] args) {
-        for (int k=0; k<5; k++){
-            final int tmp=k;//нужно уточнить вопрос: "Почему если мы из анононимного класса используем локальные переменные они должны быть финальными?"
+        for (int k = 0; k < 5; k++) {
+            final int tmp = k;//нужно уточнить вопрос: "Почему если мы из анононимного класса используем локальные переменные они должны быть финальными?"
             new Thread(new Runnable() {
                 public void run() {
                     hello(tmp);
@@ -15,8 +15,8 @@ public class App05 {
         }
     }
 
-    public synchronized static void hello(int id){
-        System.out.println("Поток с номером "+id+" вошёл в синхронизированный метод");
+    public synchronized static void hello(int id) {
+        System.out.println("Поток с номером " + id + " вошёл в синхронизированный метод");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ignore) {/*NOP*/}
