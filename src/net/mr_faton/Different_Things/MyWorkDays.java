@@ -1,7 +1,7 @@
 package net.mr_faton.Different_Things;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by root on 12.11.2014.
@@ -11,37 +11,26 @@ public class MyWorkDays {
     static final String[] WHAT_IM_DOING = {"работаю в день", "работаю в ночь", "дома после ночи", "дома перед днём"};
 
     //день месяца и месяц, когда я хочу узнать статус своей работы
-    static int numOfNeedDay = 1;
-    static int numOfNeedMonth = 4;
-    static int numOfNeedYear = 2015;
+    static int numOfNeedDay = 25;
+    static int numOfNeedMonth = 12;
+    static int numOfNeedYear = 2014;
 
     //Когда я последний раз работал в ДЕНЬ!??
-    static int numOfWorkDay = 3;
-    static int numOfWorkMonth = 1;
-    static int numOfWorkYear = 2015;
+    static int numOfWorkDay = 12;
+    static int numOfWorkMonth = 11;
+    static int numOfWorkYear = 2014;
 
     public static void main(String[] args) {
 
-
-
         Calendar calendar = Calendar.getInstance();
-        calendar.set(numOfWorkYear, numOfWorkMonth-1, numOfWorkDay, 10, 0);
+        calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
+        calendar.set(numOfWorkYear, numOfWorkMonth - 1, numOfWorkDay);
         long startDay = calendar.getTimeInMillis();
-        calendar.set(numOfNeedYear, numOfNeedMonth - 1, numOfNeedDay, 10, 0);
+        calendar.set(numOfNeedYear, numOfNeedMonth - 1, numOfNeedDay);
         long needDay = calendar.getTimeInMillis();
-
         int days =(int) ((needDay - startDay)/DAY);
 
-        for (int i = 0; i<days; i++){
-            startDay +=DAY;
-        }
-        calendar.setTimeInMillis(startDay);
         System.out.println(String.format("%tc", calendar));
-
-//        int q = days/4;
-//        int w = q*4;
-//        long e = (long) w*DAY + startDay;
-//
-
+        System.out.println(WHAT_IM_DOING[days%4]);
     }
 }
