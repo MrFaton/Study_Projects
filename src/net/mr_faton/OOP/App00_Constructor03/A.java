@@ -20,7 +20,7 @@ class B extends A {
 
     void f() {
         System.out.println("B.f");
-    }
+    } //метод f был переопределён (override)
 }
 
 class C extends B {
@@ -30,7 +30,7 @@ class C extends B {
 
     void f() {
         System.out.println("C.f");
-    }
+    } //снова метод f был переопределён (override)
 }
 
 class Test {
