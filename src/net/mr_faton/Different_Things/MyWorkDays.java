@@ -7,7 +7,7 @@ import java.util.TimeZone;
  * Created by root on 12.11.2014.
  */
 public class MyWorkDays {
-    static final int DAY=1000*60*60*24;
+    static final int DAY = 1000 * 60 * 60 * 24;
     static final String[] WHAT_IM_DOING = {"работаю в день", "работаю в ночь", "дома после ночи", "дома перед днём"};
 
     //день месяца и месяц, когда я хочу узнать статус своей работы
@@ -28,9 +28,9 @@ public class MyWorkDays {
         long startDay = calendar.getTimeInMillis();
         calendar.set(numOfNeedYear, numOfNeedMonth - 1, numOfNeedDay);
         long needDay = calendar.getTimeInMillis();
-        int days =(int) ((needDay - startDay)/DAY);
+        int days = (int) ((needDay - startDay) / DAY);
 
         System.out.println(String.format("%tc", calendar));
-        System.out.println(WHAT_IM_DOING[days%4]);
+        System.out.println(WHAT_IM_DOING[days % 4]);
     }
 }

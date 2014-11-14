@@ -10,7 +10,7 @@ public class App04_InterruptedException01 {
             public void run() {
                 while (true) {
                     Thread myThread = Thread.currentThread();
-                    System.out.println(Thread.currentThread().getName()+": " + myThread.isInterrupted());
+                    System.out.println(Thread.currentThread().getName() + ": " + myThread.isInterrupted());
                     try {
                         Thread.sleep(1_000_000);
                     } catch (InterruptedException e) {
@@ -22,7 +22,7 @@ public class App04_InterruptedException01 {
         });
         thread.start();
         Thread.sleep(1000);
-        System.out.println(Thread.currentThread().getName()+": Отослали сообщение об самоуничтожении");
+        System.out.println(Thread.currentThread().getName() + ": Отослали сообщение об самоуничтожении");
         thread.interrupt();
     }
 }
