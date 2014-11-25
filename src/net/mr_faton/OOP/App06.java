@@ -5,15 +5,15 @@ package net.mr_faton.OOP;
  */
 public class App06 {
     public static void main(String[] args) {
-        fun(new int[] {5, 10, 15}, 1);
+        fun(new int[]{5, 10, 15}, 1);
         fun("Hello!", 0);
     }
 
-    public static void fun(int[] myArray, int index){
+    public static void fun(int[] myArray, int index) {
         System.out.println(myArray[index]);
     }
 
-    public static void fun (String str, int index){
+    public static void fun(String str, int index) {
         System.out.println(str.charAt(index));
     }
 }
