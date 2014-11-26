@@ -26,6 +26,6 @@ public class CircleMy implements Figure {
 
     @Override
     public int left() {
-        return x;
+        return x - radius;
     }
 }

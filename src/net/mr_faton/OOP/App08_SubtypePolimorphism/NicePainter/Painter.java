@@ -17,9 +17,4 @@ public class Painter {
             fig.print();
         }
     }
-
-    public int minLeft(List<Figure> figures) {
-        return 0;
-    }
-
 }
