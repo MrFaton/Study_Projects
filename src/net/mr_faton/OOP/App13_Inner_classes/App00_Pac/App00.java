@@ -1,4 +1,4 @@
-package net.mr_faton.OOP.App13_Inner_classes;
+package net.mr_faton.OOP.App13_Inner_classes.App00_Pac;
 
 /**
  * Created by Faton on 28.11.2014.
