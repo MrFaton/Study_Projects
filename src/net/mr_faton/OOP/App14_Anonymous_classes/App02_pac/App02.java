@@ -1,4 +1,4 @@
-package net.mr_faton.OOP.App14_Anonymous_slasses.App02_pac;
+package net.mr_faton.OOP.App14_Anonymous_classes.App02_pac;
 
 /**
  * Created by Faton on 30.11.2014.
