@@ -11,7 +11,7 @@ public class MyWorkDays {
     static final String[] WHAT_IM_DOING = {"работаю в день", "работаю в ночь", "дома после ночи", "дома перед днём"};
 
     //день месяца и месяц, когда я хочу узнать статус своей работы
-    static int numOfNeedDay = 25;
+    static int numOfNeedDay = 5;
     static int numOfNeedMonth = 12;
     static int numOfNeedYear = 2014;
 
