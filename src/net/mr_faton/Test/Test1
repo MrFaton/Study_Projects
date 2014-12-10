@@ -1,5 +1,0 @@
-class Test1 {
-  static coid boob() {
-    System.out.println("hr");
-  }
-}
