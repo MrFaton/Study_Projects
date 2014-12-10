@@ -11,7 +11,3 @@ public class Test {
         System.out.println(x + " = " + Integer.toString(x, 16) + " в шестнадцатиричной системе");
     }
 }
-
-class test2 extends Test{
-    int t = 5;
-}
