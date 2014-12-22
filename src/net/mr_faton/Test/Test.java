@@ -5,9 +5,8 @@ package net.mr_faton.Test;
  */
 public class Test {
     public static void main(String[] args) {
-        int x = 79;
-        System.out.println(x + " = " + Integer.toString(x, 2) + " в двоичной системе");
-        System.out.println(x + " = " + Integer.toString(x, 8) + " в восьмеричной системе");
-        System.out.println(x + " = " + Integer.toString(x, 16) + " в шестнадцатиричной системе");
+        System.out.println(Thread.currentThread().getPriority());
+        double d = 3.4;
+        System.out.println(Math.nextUp(d));
     }
 }
