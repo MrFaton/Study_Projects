@@ -1,13 +1,13 @@
 package net.mr_faton.Test;
+import java.util.*;
 
 /**
  * Created by Faton on 08.11.2014.
  */
+
 public class Test {
     public static void main(String[] args) {
-        int x = 79;
-        System.out.println(x + " = " + Integer.toString(x, 2) + " в двоичной системе");
-        System.out.println(x + " = " + Integer.toString(x, 8) + " в восьмеричной системе");
-        System.out.println(x + " = " + Integer.toString(x, 16) + " в шестнадцатиричной системе");
+        Currency currency = Currency.getInstance(Locale.getDefault());
+        System.out.println(currency.getNumericCode());
     }
 }
