@@ -19,7 +19,7 @@ public class App00 {
 
         String str1 = new String(bytes0, "cp1251");
         System.out.println(str1);//хотя используем разные кодировки (правила), но выводит одни и те же символы, потому что у UTF-8 и cp1251 первые 127 символом совпадают. Если загуглить ASCII table (ASCII - кодировка, которая была ещё до Unicode), то в таблице будут видны все эти значения, т.е. чему соответствует char[70]=F
-        byte[] bb = {};
+        byte[] bb = {55, 83, 105};
         String str2 = new String(bb, "Unicode");
         System.out.println(str2);
 
