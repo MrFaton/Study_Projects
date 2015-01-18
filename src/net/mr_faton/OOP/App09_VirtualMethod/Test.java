@@ -13,7 +13,7 @@ public class Test {
         figures.add(new Circle(38, 24, 5));
         figures.add(new Rect(46, 53, 18, 7));
 
-        new Figure().left(); //выкинет исключение
+//        new Figure().left(); //выкинет исключение
 
         System.out.println(new Position().mostLeft(figures)); //исключения НЕ будет
     }
