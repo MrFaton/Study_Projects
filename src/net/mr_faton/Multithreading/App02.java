@@ -23,11 +23,11 @@ public class App02 {
     }
 
     public /*synchronized*/ static void hello(int id) {
-        System.out.println("Поток с номером " + id + " вошёл в синхронизированный метод");
+        System.out.println("Поток с номером " + id + " вошёл в метод");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ignore) {/*NOP*/}
-        System.out.println("Поток с номером " + id + " вышел из синхронизированного метода");
+        System.out.println("Поток с номером " + id + " вышел из метода");
     }
 }
 //В этом случае потоки зашли одновременно и работале одновременно
