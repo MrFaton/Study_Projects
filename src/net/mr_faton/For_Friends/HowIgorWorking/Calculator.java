@@ -8,7 +8,7 @@ import java.util.TimeZone;
  */
 public class Calculator {
     private static final int DAY = 1000 * 60 * 60 * 24;
-    private static final String[] WHAT_IM_DOING = {"работаю в день", "работаю в ночь", "дома после ночи", "дома перед днём"};
+    private static final String[] WHAT_IM_DOING = {"работет в день", "работает в ночь", "дома после ночи", "дома перед днём"};
 
     private static final int numOfWorkDay = 12;
     private static final int numOfWorkMonth = 11;
@@ -23,6 +23,6 @@ public class Calculator {
         long needDay = calendar.getTimeInMillis();
         int days = (int) ((needDay - startDay) / DAY);
 
-        return "Игорь в этот " + WHAT_IM_DOING[days % 4] + ". А это у нас " + String.format("%tc", calendar);
+        return "Игорь " + WHAT_IM_DOING[days % 4] + ". А это у нас " + String.format("%tc", calendar);
     }
 }
