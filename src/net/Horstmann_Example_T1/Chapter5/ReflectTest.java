@@ -142,3 +142,11 @@ public class ReflectTest {
         }
     }
 }
+/*
+* Для того, чтобы просмотреть любой созданный мной класс, нужно указать полное имя класса.
+* Например, если класс лежить по адресу
+* X:\Faton\Java\Study_Projects\out\production\Study_Projects\net\Horstmann_Example_T1\Chapter6\App02_FirstTestInnerClass\TalkingClock.class
+* и он находится в пакете package net.Horstmann_Example_T1.Chapter6.App02_FirstTestInnerClass;
+* то для того, чтобы пройтись по нему рефлексией, нужно указать пакет и имя:
+* net.Horstmann_Example_T1.Chapter6.App02_FirstTestInnerClass.TalkingClock
+* */

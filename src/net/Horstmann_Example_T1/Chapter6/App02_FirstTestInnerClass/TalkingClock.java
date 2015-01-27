@@ -38,7 +38,7 @@ public class TalkingClock {
      * объявлен с любым модификатором доступа. Приват означает, что о существовании этого класса знает только
      * объемлюющий класс
      */
-    private class TimePrinter implements ActionListener {
+    public class TimePrinter implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             Date now = new Date();
             System.out.println("Time is now: " + now);
