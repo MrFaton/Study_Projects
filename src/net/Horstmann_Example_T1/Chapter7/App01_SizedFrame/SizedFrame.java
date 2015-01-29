@@ -16,7 +16,8 @@ public class SizedFrame extends JFrame {
         setSize(screenWeidth / 3, screenHeight / 3);
         setLocationByPlatform(true);
 
-        Image img = new ImageIcon("D:\\Java\\Study_Projects\\src\\net\\Horstmann_Example_T1\\Chapter7\\App01_SizedFrame\\star.ico").getImage();
+        //отображаются только gif иконки
+        Image img = new ImageIcon("D:\\Java\\Study_Projects\\src\\net\\Horstmann_Example_T1\\Chapter7\\App01_SizedFrame\\star.gif").getImage();
         setIconImage(img);
     }
 }
