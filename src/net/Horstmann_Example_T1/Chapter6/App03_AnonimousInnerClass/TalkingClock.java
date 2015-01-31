@@ -10,7 +10,7 @@ import javax.swing.Timer;
  * Created by root on 27.01.2015.
  */
 public class TalkingClock {
-    public void start(int interval, final boolean beep){
+    public void start(int interval, final boolean beep) {
         //создаём анонимный класс, который реализует интерфейс ActionListener и его метод actionPerformed
         ActionListener listener = new ActionListener() {
             @Override

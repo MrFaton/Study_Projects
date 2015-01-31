@@ -1,12 +1,14 @@
-package net.mr_faton.Test;
-
+package net.mr_faton.Different_Things;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Test {
+/**
+ * Created by root on 31.01.2015.
+ */
+public class SymbolReplace {
     public static void main(String[] args) {
         Scanner in = null;
         try {
@@ -22,3 +24,4 @@ public class Test {
         }
     }
 }
+//Внимание! Файл должен быть в формате UTF-8
