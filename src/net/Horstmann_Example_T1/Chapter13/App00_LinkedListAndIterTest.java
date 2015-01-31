@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by root on 31.01.2015.
  */
-public class LinkedListAndIterTest {
+public class App00_LinkedListAndIterTest {
     public static void main(String[] args) {
         List<String> list1 = new LinkedList<>();
         list1.add("Bob");

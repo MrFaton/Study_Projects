@@ -11,7 +11,7 @@ import java.io.FileReader;
 /**
  * Created by root on 31.01.2015.
  */
-public class HashSetTest {
+public class App01_HashSetTest {
     public static void main(String[] args) {
         Set<String> hashSet = new HashSet<>();
         Scanner in = null;
