@@ -1,13 +1,12 @@
-package net.mr_faton.Test;
+package net.Horstmann_Example_T2.Chapter1;
 
-
-import java.io.*;
-import java.net.URL;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Test {
+/**
+ * Created by Mr_Faton on 08.02.2015.
+ */
+public class App08_RegExp_Simple {
     public static void main(String[] args) {
         String text = "<a href=/quality.html>Качество</a></li>\n" +
                 "а теперь просто строка\n" +

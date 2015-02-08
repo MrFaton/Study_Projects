@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * Created by root on 08.02.2015.
  */
-public class App08_RegExp {
+public class App09_RegExpBigExample {
     public static void main(String[] args) {
         System.out.println("Введи сайт, например (http://expogas.net/), длина сайта не меньше 10 символов:");
         String site;
@@ -32,8 +32,7 @@ public class App08_RegExp {
             e.printStackTrace();
         }
 
-//        String regexp = "a\\s+href\\s*=\\s*(\"[^\"]*\"|[^\\s]*)";
-        String regexp = "a\\s+href\\s+=";
+        String regexp = "(.*a href\\s*=\\s*)(.*?)>";
         Pattern pattern = Pattern.compile(regexp, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(text);
 
@@ -41,8 +40,9 @@ public class App08_RegExp {
             int start = matcher.start();
             int end = matcher.end();
             String match = text.substring(start, end);
-
             System.out.println(match);
+
+            System.out.println(matcher.group(2) + "+++++++++++++++");
         }
     }
 }
