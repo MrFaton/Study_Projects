@@ -27,6 +27,7 @@ public class ReadWriteFile_Test2 {
         copyMethod2(original, copy2);
     }
 
+    //метод, получающий из файла поток ввода InputStream и копирует при помощи него данные
     public static void copyMethod1(Path original, Path copy) {
         try (InputStream in = Files.newInputStream(original); OutputStream out = Files.newOutputStream(copy)) {
 
@@ -40,6 +41,7 @@ public class ReadWriteFile_Test2 {
         }
     }
 
+    //метод, получает поток Reader и копирует при помощи него данные
     public static void copyMethod2(Path original, Path copy) {
         try (Reader in = Files.newBufferedReader(original, Charset.forName("UTF-8"));
              Writer out = Files.newBufferedWriter(copy, Charset.forName("UTF-8"))) {

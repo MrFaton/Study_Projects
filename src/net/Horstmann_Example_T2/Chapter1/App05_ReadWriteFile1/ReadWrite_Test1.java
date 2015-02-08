@@ -12,8 +12,13 @@ import java.util.List;
  */
 public class ReadWrite_Test1 {
     public static void main(String[] args) {
+        //отображает рабочую папку в данный момент
         System.out.println("Моя рабочая папка: " + System.getProperty("user.dir") + "\n");
-
+        /*
+        устанавливает абсолютный (полный, от начала до имени файла) путь. Путь можно вводить отдельными строками:
+        например "Study_Projects". Если ввести таким образом путь, то в зависимости от операционки JVM сама
+        сформирует правильный путь (для Винды: С:\, для ЮНИКС /хоме)
+         */
         Path absolute = Paths.get("X:\\", "Faton", "Java", "Study_Projects", "src", "net", "Horstmann_Example_T2\\Chapter1\\App05_ReadWriteFile1", "Test.txt");
         printWay1("Файл с абсолютным путём", absolute);
         printWay2("абсолютным", absolute);
@@ -24,6 +29,7 @@ public class ReadWrite_Test1 {
 
     }
 
+    //метод извлекает все байты из файла и помещает их в байтовый массив. Далее из него формируется строка с указанием кодировки
     public static void printWay1(String str, Path path) {
         System.out.println("***Печать файла через байтовый массив***\n" + "+++" + str + "+++");
         try {
@@ -38,6 +44,7 @@ public class ReadWrite_Test1 {
         System.out.println("*****\n");
     }
 
+    //данный метод читает из файл построчно данные и сохраняет каждую строку в список строк
     public static void printWay2(String str, Path path) {
         System.out.println("----Печать первой стоки файла с " + str + " путём при помощи List: ");
         try {
