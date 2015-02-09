@@ -1,4 +1,4 @@
-package net.mr_faton.Different_Things.FilmFinder;
+package net.mr_faton.Different_Things.ContetnFinder_InFsTo;
 
 import java.io.*;
 import java.net.URL;
@@ -8,7 +8,7 @@ import java.util.concurrent.BlockingQueue;
  * Created by root on 09.02.2015.
  */
 public class PageSearcher {
-    private final BlockingQueue<StringBuilder> queue;
+    private BlockingQueue<StringBuilder> queue;
     private final String site;
     private final int pages;
     private final String additionalPart = "?page=";
@@ -40,7 +40,7 @@ public class PageSearcher {
         if (counter < pages) parsePages();
 
         try {
-            queue.put(FilmSearcher.STOP);
+            queue.put(Searcher.STOP);
         } catch (InterruptedException e) {
             System.err.println("Произошла ошибка при добавлении страницы в очередь");
             e.printStackTrace();
