@@ -11,8 +11,8 @@ import java.util.concurrent.BlockingQueue;
  * Created by root on 09.02.2015.
  */
 public class Searcher {
-    public static final int VOTE_BARRIER = 10;
-    public static final int NUM_OF_PAGES = 5;
+    public static final int VOTE_BARRIER = 2500;
+    public static final int NUM_OF_PAGES = 80;
     public static final StringBuilder STOP = new StringBuilder("STOP");
 
     public static void main(String[] args) {
