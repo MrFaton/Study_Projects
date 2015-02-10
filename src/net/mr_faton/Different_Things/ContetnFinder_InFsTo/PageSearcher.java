@@ -29,6 +29,7 @@ public class PageSearcher {
                 page.append((char) ch);
             }
             queue.put(page);
+            System.out.println("Total pages: " + Searcher.NUM_OF_PAGES + " processing page #" + counter);
         } catch (IOException | InterruptedException ex) {
             System.err.println("Произошла ошибка при чтении из ЮРЛ или при добавлении страницы в очередь");
             ex.printStackTrace();
