@@ -14,7 +14,6 @@ public class PageSearcher {
     private final String regExp = "(.*next-link\"href=\")(.*?)\"";
     private Pattern pattern;
     private Matcher matcher;
-
     private int counter = 0;
 
     public PageSearcher(BlockingQueue<StringBuilder> queue) {
