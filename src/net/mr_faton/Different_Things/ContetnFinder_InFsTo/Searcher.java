@@ -57,6 +57,12 @@ public class Searcher {
 
         saveListToFile(content);
         workTime = System.currentTimeMillis() - workTime;
+        long sec = workTime / 1000;
+        long min = sec / 60;
+        if (sec >= 60) {
+            min += sec/60;
+            sec = sec%60;
+        }
         System.out.println("Work done in " + workTime / 1000 / 60 + " minutes and " + workTime / 1000 + " seconds");
     }
 
