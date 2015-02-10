@@ -12,14 +12,17 @@ import java.util.concurrent.BlockingQueue;
  */
 public class Searcher {
     public static int VOTE_BARRIER = 2500;
-    public static int NUM_OF_PAGES = 80;
+    public static int NUM_OF_PAGES = 50;
     public static String url = "";
     public static final StringBuilder STOP = new StringBuilder("STOP");
 
     public static void main(String[] args) {
-        System.out.println("Enter URL (like http://fs.to/video/films/):");
+        System.out.println("Enter URL or any button for default (http://fs.to/video/films/):");
         Scanner input = new Scanner(System.in);
         url = input.nextLine();
+        if (url.length() < 7) {
+            url = "http://fs.to/video/films/";
+        }
         System.out.println("Enter vote barrier (like 2500):");
         VOTE_BARRIER = Integer.parseInt(input.nextLine());
         System.out.println("Enter num of process pages (like 80):");
@@ -69,7 +72,7 @@ public class Searcher {
             }
             out.flush();
         } catch (IOException ex) {
-
+            ex.printStackTrace();
         }
     }
 }

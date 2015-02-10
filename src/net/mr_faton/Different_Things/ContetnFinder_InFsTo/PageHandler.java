@@ -16,6 +16,7 @@ public class PageHandler {
     private String name = "";
     private int positiveVotes = 0;
     private int negativeVotes = 0;
+    private int count = 1;
 
     public PageHandler(BlockingQueue<StringBuilder> queue, List<Content> contentList) {
         this.queue = queue;
@@ -25,32 +26,35 @@ public class PageHandler {
     public void handlePages() {
         try {
             page = queue.take();
-            if (page == Searcher.STOP) {
-                queue.put(page);
-                return;
-            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        Pattern pattern = Pattern.compile(regExp);
-        Matcher matcher = pattern.matcher(page);
-
-        while (matcher.find()) {
-            if (matcher.group(3) != null) {
-                name = matcher.group(3);
-            }
-            if (matcher.group(5) != null) {
-                positiveVotes = Integer.parseInt(matcher.group(5));
-            }
-
-            if (matcher.group(7) != null) {
-                negativeVotes = Integer.parseInt(matcher.group(7));
-                if (positiveVotes >= Searcher.VOTE_BARRIER) {
-                    contentList.add(new Content(name, positiveVotes, negativeVotes));
+        if (page != Searcher.STOP) {
+            Pattern pattern = Pattern.compile(regExp);
+            Matcher matcher = pattern.matcher(page);
+            while (matcher.find()) {
+                if (matcher.group(3) != null) {
+                    name = matcher.group(3);
+                }
+                if (matcher.group(5) != null) {
+                    positiveVotes = Integer.parseInt(matcher.group(5));
+                }
+                if (matcher.group(7) != null) {
+                    negativeVotes = Integer.parseInt(matcher.group(7));
+                    if (positiveVotes >= Searcher.VOTE_BARRIER) {
+                        contentList.add(new Content(name, positiveVotes, negativeVotes));
+                    }
                 }
             }
+            System.out.println("Total pages: " + Searcher.NUM_OF_PAGES + " processing page #" + count++);
+            handlePages();
+        } else {
+            try {
+                queue.put(page);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        handlePages();
     }
 }

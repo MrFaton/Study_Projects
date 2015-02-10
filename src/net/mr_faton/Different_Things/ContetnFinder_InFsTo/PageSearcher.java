@@ -29,7 +29,7 @@ public class PageSearcher {
                 page.append((char) ch);
             }
             queue.put(page);
-            System.out.println("Total pages: " + Searcher.NUM_OF_PAGES + " processing page #" + counter);
+
         } catch (IOException | InterruptedException ex) {
             System.err.println("Произошла ошибка при чтении из ЮРЛ или при добавлении страницы в очередь");
             ex.printStackTrace();
@@ -46,13 +46,14 @@ public class PageSearcher {
         counter++;
         if (counter < Searcher.NUM_OF_PAGES) {
             parsePages(url);
-        }
 
-        try {
-            queue.put(Searcher.STOP);
-        } catch (InterruptedException e) {
-            System.err.println("Произошла ошибка при добавлении страницы в очередь");
-            e.printStackTrace();
+        } else {
+            try {
+                queue.put(Searcher.STOP);
+            } catch (InterruptedException e) {
+                System.err.println("Произошла ошибка при добавлении страницы в очередь");
+                e.printStackTrace();
+            }
         }
     }
 }
