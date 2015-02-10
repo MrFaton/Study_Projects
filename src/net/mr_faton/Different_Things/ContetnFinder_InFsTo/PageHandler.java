@@ -1,6 +1,6 @@
 package net.mr_faton.Different_Things.ContetnFinder_InFsTo;
 
-import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.BlockingQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,15 +10,12 @@ import java.util.regex.Pattern;
  */
 public class PageHandler {
     private BlockingQueue<StringBuilder> queue;
-    private final String regExpName = "";
-    private final String regExpPositiveVotes = "";
-    private TreeMap<String, Integer> content;
-    private Pattern patternVote;
-    private Pattern patternName;
-    private Matcher matcherVote;
-    private Matcher matcherName;
+    private final String regExp = "(.*title-full\">)(.*?)</span>(.*vote-positive\\\">)(.*?)</span>(.*vote-negative\\\">)(.*?)</span>";
+    private TreeSet<Page> content;
+    private Pattern pattern;
+    private Matcher matcher;
 
-    public PageHandler(BlockingQueue<StringBuilder> queue, TreeMap<String, Integer> content) {
+    public PageHandler(BlockingQueue<StringBuilder> queue, TreeSet<Page> content) {
         this.queue = queue;
         this.content = content;
     }
@@ -30,9 +27,14 @@ public class PageHandler {
                 queue.put(page);
                 return;
             }
+            pattern = Pattern.compile(regExp);
+            matcher = pattern.matcher(page);
 
-            patternVote = Pattern.compile(regExpPositiveVotes);
-            matcherVote = patternVote.matcher(page);
+            while (matcher.find()) {
+                System.out.println(matcher.group(2));
+                System.out.println(matcher.group(4));
+                System.out.println(matcher.group(6));
+            }
 
         } catch (InterruptedException e) {
             e.printStackTrace();
