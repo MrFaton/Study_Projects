@@ -22,6 +22,7 @@ public class Searcher {
         url = input.nextLine();
         if (url.length() < 7) {
             url = "http://fs.to/video/films/";
+            System.out.println("accepting default URL: http://fs.to/video/films/");
         }
         System.out.println("Enter vote barrier (like 2500):");
         VOTE_BARRIER = Integer.parseInt(input.nextLine());
