@@ -36,7 +36,7 @@ public class Searcher {
         Thread searcher = new Thread(new Runnable() {
             @Override
             public void run() {
-                new PageSearcher(queue).parsePages("http://fs.to/video/films/");
+                new PageSearcher(queue).parsePages(url);
 //                new PageSearcher(queue).parsePages("http://fs.to/audio/collections/");
 //                new PageSearcher(queue).parsePages("http://fs.to/video/films/?sort=new");
             }
@@ -57,13 +57,9 @@ public class Searcher {
 
         saveListToFile(content);
         workTime = System.currentTimeMillis() - workTime;
-        long sec = workTime / 1000;
-        long min = sec / 60;
-        if (sec >= 60) {
-            min += sec/60;
-            sec = sec%60;
-        }
-        System.out.println("Work done in " + workTime / 1000 / 60 + " minutes and " + workTime / 1000 + " seconds");
+        long min = workTime / 1000 / 60;
+        long sec = (workTime / 1000) - (min * 60);
+        System.out.println("Work done in " + min + " minutes and " + sec + " seconds");
     }
 
     public static void saveListToFile(List<Content> contents) {
