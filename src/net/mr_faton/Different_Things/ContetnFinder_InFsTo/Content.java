@@ -16,11 +16,17 @@ public class Content implements Comparable<Content> {
         this.negative = negative;
     }
 
+    /*
+    Метод compareTo переопределён таким образом, чтобы возвращать обратный вывод результатов, то есть сравнение
+    происходит от большего к меньшему. То есть сравниваются позитивные голоса и упорядочение происходит от большего
+    к меньшему
+     */
     @Override
     public int compareTo(Content otherContent) {
         return Integer.compare(otherContent.positive, positive);
     }
 
+    //необходимости в этом методе нет
     @Override
     public boolean equals(Object otherObj) {
         if (otherObj == null) return false;
@@ -29,6 +35,7 @@ public class Content implements Comparable<Content> {
         return name.equals(other.name) && positive == other.positive && negative == other.negative;
     }
 
+    //необходимости в этом методе нет
     @Override
     public int hashCode() {
         return Objects.hash(name + positive + negative);
@@ -39,3 +46,7 @@ public class Content implements Comparable<Content> {
         return name + " = " + positive + " положительных; " + negative + " отрицательных";
     }
 }
+/*
+Этот класс отображает конкретное содержимое (один фильм, один сборник, один альбом), а именно:
+имя содержимого, позитивное количество голосов и негативное количество голосов
+ */

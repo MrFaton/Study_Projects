@@ -11,12 +11,17 @@ import java.util.concurrent.BlockingQueue;
  * Created by root on 09.02.2015.
  */
 public class Searcher {
-    public static int VOTE_BARRIER = 2500;
-    public static int NUM_OF_PAGES = 50;
+    //барьер положительных голосов, ниже которого остальной контент игнорируется
+    public static int VOTE_BARRIER;
+    //количество страниц, которых необходимо обработать
+    public static int NUM_OF_PAGES;
+    //ссылка на первую страницу с данными
     public static String url = "";
+    //страница, которая сигнализирует обработчику, что это последняя обрабатываемая страница
     public static final StringBuilder STOP = new StringBuilder("STOP");
 
     public static void main(String[] args) {
+        //просим ввести ссылку на первую страницу, мин кол-во позитивных голосов и кол-во обрабатываемых страниц
         System.out.println("Enter URL or any button for default (http://fs.to/video/films/):");
         Scanner input = new Scanner(System.in);
         url = input.nextLine();
@@ -31,8 +36,11 @@ public class Searcher {
 
         System.out.println("Program is working...");
         long workTime = System.currentTimeMillis();
+        //создаём блокирующую очердь
         final BlockingQueue<StringBuilder> queue = new ArrayBlockingQueue<>(10);
+        //создаём коллекцию для хранения контента
         final List<Content> content = new ArrayList<>();
+        //создаём поток для поисковика
         Thread searcher = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,20 +49,24 @@ public class Searcher {
 //                new PageSearcher(queue).parsePages("http://fs.to/video/films/?sort=new");
             }
         });
+        //создаём поток для обработчика
         Thread handler = new Thread(new Runnable() {
             @Override
             public void run() {
                 new PageHandler(queue, content).handlePages();
             }
         });
+        //запускаем поисковик
         searcher.start();
+        //запускаем обработчик
         handler.start();
+        //дожидаемя завершения работы обработчика
         try {
             handler.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        //сохраняем коллекцию с контентом в файл
         saveListToFile(content);
         workTime = System.currentTimeMillis() - workTime;
         long min = workTime / 1000 / 60;
@@ -62,6 +74,7 @@ public class Searcher {
         System.out.println("Work done in " + min + " minutes and " + sec + " seconds");
     }
 
+    //метод сохраняет контент в файл
     public static void saveListToFile(List<Content> contents) {
         Collections.sort(contents);
         String count = "В списке: " + contents.size() + " элемента(ов)";
@@ -79,3 +92,7 @@ public class Searcher {
         }
     }
 }
+/*
+Основной каласс. Запускает в одом потоке класс-поисковик, а в другом потоке класс-обработчик и связываем их через
+одну блокирующую очередь
+ */

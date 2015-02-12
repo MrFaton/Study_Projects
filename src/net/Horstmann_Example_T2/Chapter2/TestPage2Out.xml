@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards>
+    <card>
+        <word>April</word>
+        <meanings>
+            <guess_num>2</guess_num>
+            <translations>
+                <word>апрель</word>
+                <word>Апрель</word>
+            </translations>
+        </meanings>
+    </card>
+    <card>
+        <word>pie</word>
+        <meanings>
+            <guess_num>5</guess_num>
+            <translations>
+                <word>пирог</word>
+                <word>пирожок</word>
+                <word>пирожище</word>
+                <word>кекс</word>
+            </translations>
+            <examples>
+                <example>delicious pie</example>
+                <example>nice pie</example>
+            </examples>
+        </meanings>
+    </card>
+    <card>
+        <word>have</word>
+        <meanings>
+            <guess_num>7</guess_num>
+            <translations>
+                <word>иметь</word>
+                <word>есть</word>
+                <word>обладать</word>
+            </translations>
+            <examples>
+                <example>I have an apple</example>
+                <example>I have the friend</example>
+                <example>I have a cake</example>
+            </examples>
+            <sound name="have.wav"/>
+        </meanings>
+    </card>
+    <card>
+        <word>incredible</word>
+        <meanings>
+            <guess_num>1</guess_num>
+            <translations>
+                <word>невероятный</word>
+            </translations>
+            <examples>
+                <example>
+                    Incredible day today
+                </example>
+            </examples>
+        </meanings>
+    </card>
+</cards>
