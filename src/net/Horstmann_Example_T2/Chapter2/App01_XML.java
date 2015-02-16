@@ -6,12 +6,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import org.xml.sax.ErrorHandler;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXParseException;
 
 /**
@@ -21,11 +18,14 @@ public class App01_XML {
 
     public static void main(String[] args) throws ParserConfigurationException {
         Document doc = null;
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\TestPage1In.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\TestPage1In.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        //активируем проверку xml документа на соответствие DTD определениям. Это позволяет подавлять все разделители
         factory.setValidating(true);
+        //говорим построителю документов не учитывать разделители
         factory.setIgnoringElementContentWhitespace(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
+        //желательно установить свой обработчик исключейний, т.к. стандартный ничего не делает, только бросает исключ.
         builder.setErrorHandler(new MyErrorHandler());
         try {
             doc = builder.parse(file);
@@ -38,6 +38,7 @@ public class App01_XML {
         }
         if (doc == null) System.exit(1);
         Element root = doc.getDocumentElement();
+        //т.к. благодаря
         NodeList nodeList = root.getChildNodes();
         for (int i = 0; i < nodeList.getLength(); i++) {
             System.out.println("Карточка №" + (i + 1));
@@ -56,7 +57,6 @@ public class App01_XML {
             System.out.print(temp + cardList.item(i).getNodeName() + " = ");
             if (cardList.item(i).getChildNodes().getLength() == 1) {
                 System.out.println(cardList.item(i).getTextContent().trim());
-//                spaces+;
             } else {
                 System.out.println();
                 printNod(cardList.item(i), spaces + i);

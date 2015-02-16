@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cards [
+        <!ELEMENT cards (card)+>
+        <!ELEMENT card (word, meanings)+>
+        <!ELEMENT word (#PCDATA)>
+        <!ELEMENT meanings (guess_num+, translations+, examples?, sound?)>
+        <!ELEMENT guess_num (#PCDATA)>
+        <!ELEMENT translations (word)+>
+        <!ELEMENT examples (example)+>
+        <!ELEMENT example (#PCDATA)>
+        <!ELEMENT sound (#PCDATA)>
+        <!ATTLIST sound name CDATA #REQUIRED>
+        ]>
+
 <cards>
     <card>
         <word>April</word>
@@ -53,6 +66,9 @@
             <examples>
                 <example>
                     Incredible day today
+                </example>
+                <example>
+                    I'm incredible
                 </example>
             </examples>
         </meanings>

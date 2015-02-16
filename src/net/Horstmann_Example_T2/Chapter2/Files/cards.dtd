@@ -1,0 +1,10 @@
+<!ELEMENT cards (card)+>
+        <!ELEMENT card (word, meanings)+>
+        <!ELEMENT word (#PCDATA)>
+        <!ELEMENT meanings (guess_num+, translations+, examples?, sound?)>
+        <!ELEMENT guess_num (#PCDATA)>
+        <!ELEMENT translations (word)+>
+        <!ELEMENT examples (example)+>
+        <!ELEMENT example (#PCDATA)>
+        <!ELEMENT sound (#PCDATA)>
+        <!ATTLIST sound name CDATA #REQUIRED>
