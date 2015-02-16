@@ -38,7 +38,7 @@ public class App01_XML {
         }
         if (doc == null) System.exit(1);
         Element root = doc.getDocumentElement();
-        //т.к. благодаря
+        //т.к. благодаря включенной проверке, в списке будут тольок элементы, а не разделители
         NodeList nodeList = root.getChildNodes();
         for (int i = 0; i < nodeList.getLength(); i++) {
             System.out.println("Карточка №" + (i + 1));

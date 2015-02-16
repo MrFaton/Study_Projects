@@ -31,6 +31,10 @@ public class App03_StreamSAX_Analyzer_V2 {
             public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
                 //имя элемента, открывающийся дескриптор (например: <word>)
                 System.out.println(spaces() + localName + ">>");
+                //распечать все атрибуты и их значения, если есть
+                for (int i = 0; i < attributes.getLength(); i++) {
+                    System.out.println(spaces() + "Атрибут: " + attributes.getLocalName(i) + "=" + attributes.getValue(i));
+                }
                 count++;
             }
 
@@ -55,8 +59,8 @@ public class App03_StreamSAX_Analyzer_V2 {
         };
 
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+        //включает пространство имён
         saxFactory.setNamespaceAware(true);
-        saxFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         SAXParser saxParser = saxFactory.newSAXParser();
         InputStream in = new BufferedInputStream(new FileInputStream(file));
         saxParser.parse(in, myHandler);
