@@ -11,9 +11,9 @@ public class RunCalculator {
         int month;
         int year = 2015;
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter a day:");
+        System.out.println("Введи день:");
         day = in.nextInt();
-        System.out.println("Enter a month:");
+        System.out.println("Введи месяц:");
         month = in.nextInt();
         System.out.println(new Calculator().calculateDay(day, month, year));
     }
