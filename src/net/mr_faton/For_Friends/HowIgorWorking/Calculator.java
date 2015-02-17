@@ -2,13 +2,14 @@ package net.mr_faton.For_Friends.HowIgorWorking;
 
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.text.DateFormatSymbols;
 
 /**
  * Created by Faton on 04.12.2014.
  */
 public class Calculator {
     private static final int DAY = 1000 * 60 * 60 * 24;
-    private static final String[] WHAT_IM_DOING = {"работет в день", "работает в ночь", "дома после ночи", "дома перед днём"};
+    private static final String[] WHAT_IM_DOING = {"work in day", "work in night", "at home after night", "at home before work in day"};
 
     private static final int numOfWorkDay = 12;
     private static final int numOfWorkMonth = 11;
@@ -23,6 +24,9 @@ public class Calculator {
         long needDay = calendar.getTimeInMillis();
         int days = (int) ((needDay - startDay) / DAY);
 
-        return "Игорь " + WHAT_IM_DOING[days % 4] + ". А это у нас " + String.format("%tc", calendar);
+        String[] weekDays = new DateFormatSymbols().getWeekdays();
+
+        return "I am " + WHAT_IM_DOING[days % 4] + ". The day is " + String.format("%td/%<tm/%<tY ", calendar) +
+                weekDays[calendar.get(Calendar.DAY_OF_WEEK)];
     }
 }
