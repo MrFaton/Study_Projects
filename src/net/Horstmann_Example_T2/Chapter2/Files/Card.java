@@ -51,6 +51,10 @@ public class Card implements Serializable {
                 "\nзвук: " + sound;
     }
 }
+/*
+Экземпляр этого класса отображает карточку английского слова
+ */
+
 
 class TestCard {
     public static File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\CardList.ser");
@@ -59,7 +63,7 @@ class TestCard {
 //        List<Card> list = new ArrayList<>(5);
 //        list.add(new Card("Tuesday", 2, new String[]{"вторник"}, new String[]{"I like Tuesday"}, ""));
 //        list.add(new Card("Wednesday", 5, new String[]{"среда", "средоо"}, new String[]{"nice wednesday", "N & W"}, "wednesday.wav"));
-//        list.add(new Card("Thursday", 5, new String[]{"четверг", "чт", "четвергоо"}, new String[]{"pure thursday", "in Thursday"}, ""));
+//        list.add(new Card("Thursday", 8, new String[]{"четверг", "чт", "четвергоо"}, new String[]{"pure thursday", "in Thursday"}, ""));
 //
 //        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
 //        out.writeObject(list);
@@ -70,3 +74,6 @@ class TestCard {
         System.out.println(restoredList);
     }
 }
+/*
+Создаём три карточки и сериализуем наш список этих карточек
+ */

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<cardlist>
+    <title>Карточки про одежду</title>
+    <cardfirst>
+        <word>underwear</word>
+        <meanings>
+            <transcription>"&apos;ʌndəwɛə"</transcription>
+            <word>нижнее&#32;белье</word>
+            <word>трусы</word>
+            <word>подштаники</word>
+        </meanings>
+    </cardfirst>
+    <cardsecond>
+        <word>linen</word>
+        <meanings>
+            <transcription>"&apos;linin"</transcription>
+            <word>лён</word>
+            <word>льняное полотно</word>
+        </meanings>
+    </cardsecond>
+    <card>
+        <word>dress</word>
+        <meanings>
+            <meaning transcription="dres">
+                <statistics status="2"/>
+                <translations>
+                    <word>платье</word>
+                </translations>
+                <examples>
+                    <example>cocktail&#32;dress&#32;--&#32;платье&#32;для&#32;коктейлей</example>
+                    <example>low-necked&#32;dress&#32;--&#32;платье&#32;с&#32;глубоким&#32;вырезом</example>
+                    <example>maternity&#32;dress&#32;--&#32;платье&#32;для&#32;беременных</example>
+                </examples>
+                <sound name="dress.wav"/>
+            </meaning>
+        </meanings>
+    </card>
+</cardlist>

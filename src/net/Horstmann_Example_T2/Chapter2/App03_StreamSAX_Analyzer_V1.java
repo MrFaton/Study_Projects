@@ -16,13 +16,14 @@ import java.net.URL;
  */
 public class App03_StreamSAX_Analyzer_V1 {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+        //пытаемся получить у пользователя ссылку на XHTML-страницу
         String url;
         if (args.length == 0) {
             url = "http://www.w3.org/";
         } else {
             url = args[0];
         }
-        //переопределяем только метод startElement() и ищем ссылку в атрибутах
+        //переопределяем только метод startElement() и ищем ссылку href в атрибутах
         DefaultHandler myHandler = new DefaultHandler() {
             @Override
             public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -52,5 +53,5 @@ public class App03_StreamSAX_Analyzer_V1 {
     }
 }
 /*
-В этой программе происходит парсинг всех ссылок типа a href из XHTML страницы, только из такой, из HTML не парсит
+В этой программе происходит парсинг всех ссылок типа a href из XHTML страницы, из HTML не парсит
  */

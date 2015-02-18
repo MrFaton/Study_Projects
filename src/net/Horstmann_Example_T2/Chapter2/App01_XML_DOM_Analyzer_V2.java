@@ -14,7 +14,7 @@ import org.xml.sax.SAXParseException;
 /**
  * Created by root on 12.02.2015.
  */
-public class App01_XML {
+public class App01_XML_DOM_Analyzer_V2 {
 
     public static void main(String[] args) throws ParserConfigurationException {
         Document doc = null;
@@ -38,7 +38,7 @@ public class App01_XML {
         }
         if (doc == null) System.exit(1);
         Element root = doc.getDocumentElement();
-        //т.к. благодаря включенной проверке, в списке будут тольок элементы, а не разделители
+        //благодаря включенной проверке и включеннёх в файл DTD определений, в списке будут тольок элементы, а не разделители
         NodeList nodeList = root.getChildNodes();
         for (int i = 0; i < nodeList.getLength(); i++) {
             System.out.println("Карточка №" + (i + 1));
@@ -84,3 +84,9 @@ class MyErrorHandler implements ErrorHandler {
         exception.printStackTrace();
     }
 }
+
+/*
+Класс пытается вывести назввание элемента разметки = текст, который там храниться.
+Как в xml-документе: <word>April</word>
+Как выводит программа: word = April
+ */

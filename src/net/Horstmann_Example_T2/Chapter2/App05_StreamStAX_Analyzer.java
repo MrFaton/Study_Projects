@@ -9,7 +9,7 @@ import java.io.*;
 /**
  * Created by root on 16.02.2015.
  */
-public class App04_StreamStAX_Analyzer {
+public class App05_StreamStAX_Analyzer {
     public static int count = -1;
 
     public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
@@ -17,8 +17,11 @@ public class App04_StreamStAX_Analyzer {
         InputStream in = new BufferedInputStream(new FileInputStream(file));
         XMLInputFactory factory = XMLInputFactory.newFactory();
         XMLStreamReader reader = factory.createXMLStreamReader(in);
+        //спрашиваем у потока, есть ли слудеющее событие
         while (reader.hasNext()) {
+            //сохраняем номер события и прохдим это событие
             int event = reader.next();
+            //делаем свитч по номеру события и создаём необходимые нам секции
             switch (event) {
                 case XMLStreamConstants.START_DOCUMENT: {
                     System.out.println("Начало XML-документа>>");
@@ -59,3 +62,11 @@ public class App04_StreamStAX_Analyzer {
         return str;
     }
 }
+/*
+Класс делает то же самое, что и класс App04_StreamSAX_Analyzer_V2, только по другой методике.
+Отличие StAX анализатора от SAX анализатора:
+SAX-анализатор при наступлении события вызывает соответствующий ему метод
+У StAX-анализатора каждому событию соответствует определённое число типа int. Если поставить switch или if на каждое
+такое число (которое равно определённому событию), то при наступлении определённого события, мы будем попадать в
+соответствующую ему секцию
+ */

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards>
+    <card>
+        <word>Tuesday</word>
+        <meanings>
+            <guess_num>2</guess_num>
+            <translations>
+                <word>вторник</word>
+            </translations>
+            <examples>
+                <example>I like Tuesday</example>
+            </examples>
+        </meanings>
+    </card>
+    <card>
+        <word>Wednesday</word>
+        <meanings>
+            <guess_num>5</guess_num>
+            <translations>
+                <word>среда</word>
+                <word>средоо</word>
+            </translations>
+            <examples>
+                <example>nice wednesday</example>
+                <example>N &amp; W</example>
+            </examples>
+            <sound name="wednesday.wav"/>
+        </meanings>
+    </card>
+    <card>
+        <word>Thursday</word>
+        <meanings>
+            <guess_num>8</guess_num>
+            <translations>
+                <word>четверг</word>
+                <word>чт</word>
+                <word>четвергоо</word>
+            </translations>
+            <examples>
+                <example>pure thursday</example>
+                <example>in Thursday</example>
+            </examples>
+        </meanings>
+    </card>
+</cards>

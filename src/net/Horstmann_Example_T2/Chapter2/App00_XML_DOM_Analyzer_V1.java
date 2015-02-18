@@ -16,13 +16,13 @@ import java.io.IOException;
 /**
  * Created by Mr_Faton on 09.02.2015.
  */
-public class App00_FirstXML_Test {
+public class App00_XML_DOM_Analyzer_V1 {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         //эти объекты нужны для того, чтобы получить экземпляр класса Document, который обрабатывает наш XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         //получаем файл и на остновании DocumentBuilder и файла XML строим объект Document
-        File file = new File("C:\\test.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\XML_test.xml");
         Document doc = builder.parse(file);
         //из Document получаем объект Element - это корневой узел во всём XML документе (в него входят все остальные)
         Element root = doc.getDocumentElement();
@@ -145,3 +145,16 @@ public class App00_FirstXML_Test {
         }
     }
 }
+/*
+DOM-анализатор - анализатор на основе дерева
+
+Последний метод класса пытается считать и распечатать открывающийся элемент разметки (Н: <title>) и вывести его
+название (Н: title) с добавлением >> (Н: title>>), далее текст, который харнитсья внутри разметки (Н: Карточки про
+одежду), и закрвающийся элемент разметки (Н: <<title).
+
+Как в XML-документе: <title>Карточки про одежду</title>
+Как выводит это программа:
+[title: null]>>
+ Карточки про одежду
+ <<[title: null]
+ */

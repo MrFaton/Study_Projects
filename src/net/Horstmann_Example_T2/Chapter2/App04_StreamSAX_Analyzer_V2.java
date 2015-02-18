@@ -13,7 +13,7 @@ import java.net.URL;
 /**
  * Created by root on 16.02.2015.
  */
-public class App03_StreamSAX_Analyzer_V2 {
+public class App04_StreamSAX_Analyzer_V2 {
     public static int count = -1;
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
@@ -21,17 +21,19 @@ public class App03_StreamSAX_Analyzer_V2 {
 
 
         DefaultHandler myHandler = new DefaultHandler() {
+            //этот метод вызывается в начале документа
             @Override
             public void startDocument() throws SAXException {
                 System.out.println(spaces() + "Начало документа XML >>");
                 count++;
             }
 
+            //этот при открывающимся элементе разметки
             @Override
             public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
                 //имя элемента, открывающийся дескриптор (например: <word>)
                 System.out.println(spaces() + localName + ">>");
-                //распечать все атрибуты и их значения, если есть
+                //распечать все атрибуты и их значения, если они есть
                 for (int i = 0; i < attributes.getLength(); i++) {
                     System.out.println(spaces() + "Атрибут: " + attributes.getLocalName(i) + "=" + attributes.getValue(i));
                 }
@@ -77,12 +79,15 @@ public class App03_StreamSAX_Analyzer_V2 {
 /*
 Пример потокового SAX-анализатора. Принцип его действия: на каждое событие, он вызывает определённый метод из данного
 обработчика событий. Имеется стандартный обработчик событий DefaultHandler, все его методы просто ничего не делают.
-Поэтому, если мы хотим реакций анализатора на определённые события (печать имени элемента, текста элемента), нам
-необходимо переопределить необходимые нам методы. Например, часто переопределяемые методы:
+Поэтому, если мы хотим реакций анализатора на определённые события (октрылся элемент разметки - наступило событие,
+значит мы можем распечатать имя этого элемента), нам необходимо переопределить необходимые нам методы.
+Например, часто переопределяемые методы:
 ++ startDocument() - этот метод запускается при начале XML-документа
 ++ endDocument() - этот в конце документа
-++ startElement() - этот в начале элемента
-++ endElement() - этот в конце элемента
-++ characters() - тут находится текст элемента, а именно в массиве char[] ch от int start до int length
+++ startElement() - этот запускается при каждом открывающимся элементе разметки
+++ endElement() - этот каждый раз в конце элемента
+++ characters() - тут находится текст элемента, а именно в массиве char[] ch от int start до int length, эон запускается
+ каждый раз, когда в элементе раметки обнаруживается текс
+
 В тела этих методов мы пишем код, который хотим, чтобы выполнялся во время наступлений этих событий
  */
