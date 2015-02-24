@@ -9,40 +9,52 @@ import java.io.*;
  * Created by root on 24.02.2015.
  */
 public class ChatServer {
-    private static ArrayList<PrintWriter> myClients = new ArrayList<>(2);
     public static void main(String[] args) {
-        System.out.println();
-        try {
-            ServerSocket server = new ServerSocket(5000);
-            while (true) {
-                Socket client = server.accept();
-                PrintWriter writer = new PrintWriter(client.getOutputStream());
-                myClients.add(writer);
-                new Thread(new Runnable() {
-                    InputStreamReader inRead = new InputStreamReader(client.getInputStream());
-                    BufferedReader reader = new BufferedReader(inRead);
-                    @Override
-                    public void run() {
-                        try {
-                            String message;
-                            while ((message = reader.readLine()) != null) {
+        new Server().start();
+    }
+}
 
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+
+
+class Server {
+    private ArrayList<PrintWriter> myClients = new ArrayList<>(5);
+    private ServerSocket server;
+    private Socket client;
+    private PrintWriter writer;
+
+    public void start() {
+        try {
+            server = new ServerSocket(5000);
+            while (true) {
+                System.out.println("Сервер запущен и ожидает соединений...");
+                client = server.accept();
+                System.out.println("Подключаем клиента...");
+                writer = new PrintWriter(client.getOutputStream());
+                myClients.add(writer);
+                writer.write("Hello");
+                new Thread(new ClientHolder()).start();
+                System.out.println("Клиент подключен!");
             }
-        } catch (IOException e) {
-            System.out.println("Не могу открыть сокет");
-            System.exit(1);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
-    private static void tellAll(String message) {
-        for (PrintWriter writer : myClients) {
-            writer.write(message);
+    class ClientHolder implements Runnable {
+        private BufferedReader reader;
+        private String message;
+        @Override
+        public void run() {
+            System.out.println("поток клиента старотовал");
+            try {
+                reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                message = reader.readLine();
+                System.out.println(message);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
+
