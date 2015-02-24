@@ -44,13 +44,16 @@ class Client {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    input = new Scanner(System.in);
-                    inputMessage = input.nextLine();
-                    try {
-                        writer = new PrintWriter(socket.getOutputStream());
-                        writer.write(inputMessage);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    while (true) {
+                        input = new Scanner(System.in);
+                        inputMessage = input.nextLine();
+                        try {
+                            writer = new PrintWriter(socket.getOutputStream());
+                            writer.println(inputMessage);
+                            writer.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }).start();

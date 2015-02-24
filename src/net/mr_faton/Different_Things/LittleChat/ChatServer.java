@@ -31,7 +31,6 @@ class Server {
                 System.out.println("Подключаем клиента...");
                 writer = new PrintWriter(client.getOutputStream());
                 myClients.add(writer);
-                writer.write("Hello");
                 new Thread(new ClientHolder()).start();
                 System.out.println("Клиент подключен!");
             }
@@ -50,6 +49,8 @@ class Server {
                 reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 message = reader.readLine();
                 System.out.println(message);
+                writer.println(message);
+                writer.flush();
 
             } catch (IOException e) {
                 e.printStackTrace();
