@@ -16,11 +16,10 @@ public class ChatServer {
 
 
 class Server {
-    private ArrayList<PrintWriter> myClients = new ArrayList<>(5);
+    private ArrayList<ClientHolder> myClients = new ArrayList<>(5);
     private final Map<String, String> myUsers;
     private ServerSocket server;
     private Socket client;
-    private PrintWriter writer;
     private Calendar calendar;
 
     public Server() {
@@ -36,8 +35,6 @@ class Server {
                 System.out.println("Сервер запущен и ожидает соединений...");
                 client = server.accept();
                 System.out.println("Подключаем клиента...");
-                writer = new PrintWriter(client.getOutputStream());
-                myClients.add(writer);
                 new Thread(new ClientHolder()).start();
                 System.out.println("Клиент подключен!");
             }
@@ -46,23 +43,27 @@ class Server {
         }
     }
 
-    private void messageAll(String message) {
-        for (PrintWriter sender : myClients) {
-            sender.println(message);
-            sender.flush();
+    private void messageAll(String message, ClientHolder currentClient) {
+        for (ClientHolder holdClient : myClients) {
+            if (holdClient != currentClient) {
+                holdClient.writeToClient.println(message);
+                holdClient.writeToClient.flush();
+            }
         }
     }
 
     class ClientHolder implements Runnable {
         private String message;
         private Socket socket = client;
-        private PrintWriter writeToClient = writer;
+        private PrintWriter writeToClient;
         private String login;
         private String password;
 
         @Override
         public void run() {
             try {
+                writeToClient = new PrintWriter(client.getOutputStream());
+                myClients.add(this);
                 calendar = Calendar.getInstance();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 writeToClient.println("Добро пожаловать на сервер :-) Дата на сервере: " +
@@ -86,7 +87,7 @@ class Server {
                     calendar = Calendar.getInstance();
                     message = login + ": " + reader.readLine() + " (в: " + String.format("%tT", calendar) + ")";
                     System.out.println(message);
-                    messageAll(message);
+                    messageAll(message, this);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

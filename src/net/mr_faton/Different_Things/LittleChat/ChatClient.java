@@ -46,9 +46,7 @@ class Client {
                     try {
                         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         while ((receivedMessage = reader.readLine()) != null) {
-//                            if (!receivedMessage.contains(inputMessage)) {
-                                System.out.println(receivedMessage);
-//                            }
+                            System.out.println(receivedMessage);
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
