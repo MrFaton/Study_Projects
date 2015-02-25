@@ -15,12 +15,19 @@ public class ChatServer {
 }
 
 
-
 class Server {
     private ArrayList<PrintWriter> myClients = new ArrayList<>(5);
+    private final Map<String, String> myUsers;
     private ServerSocket server;
     private Socket client;
     private PrintWriter writer;
+    private Calendar calendar;
+
+    public Server() {
+        myUsers = new HashMap<>(5);
+        myUsers.put("Mr_Faton", "907257");
+        myUsers.put("genyka", "qwertyui");
+    }
 
     public void start() {
         try {
@@ -39,19 +46,48 @@ class Server {
         }
     }
 
+    private void messageAll(String message) {
+        for (PrintWriter sender : myClients) {
+            sender.println(message);
+            sender.flush();
+        }
+    }
+
     class ClientHolder implements Runnable {
-        private BufferedReader reader;
         private String message;
+        private Socket socket = client;
+        private PrintWriter writeToClient = writer;
+        private String login;
+        private String password;
+
         @Override
         public void run() {
-            System.out.println("поток клиента старотовал");
             try {
-                reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                message = reader.readLine();
-                System.out.println(message);
-                writer.println(message);
-                writer.flush();
+                calendar = Calendar.getInstance();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                writeToClient.println("Добро пожаловать на сервер :-) Дата на сервере: " +
+                        String.format("%tA %<td/%<tm/%<ty %<tT", calendar));
+                do {
+                    writeToClient.println("Ваш логин:");
+                    writeToClient.flush();
+                    login = reader.readLine();
+                    writeToClient.println("Ваш пароль:");
+                    writeToClient.flush();
+                    password = reader.readLine();
+                    if (!(myUsers.get(login)).equals(password)) {
+                        writeToClient.println("Логин или пароль не верен, попробуй ещё раз...");
+                        writeToClient.flush();
+                    }
+                } while (!(myUsers.get(login)).equals(password));
+                writeToClient.println("Авторизация пройдена успешно! Спасибо что пришёл " + login);
+                writeToClient.flush();
 
+                while (true) {
+                    calendar = Calendar.getInstance();
+                    message = login + ": " + reader.readLine() + " (в: " + String.format("%tT", calendar) + ")";
+                    System.out.println(message);
+                    messageAll(message);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

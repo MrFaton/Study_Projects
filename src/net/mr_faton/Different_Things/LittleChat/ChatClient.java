@@ -21,19 +21,34 @@ class Client {
     private BufferedReader reader;
     private PrintWriter writer;
     private String receivedMessage;
-    private String inputMessage;
+    private String inputMessage = "/*-+";
     private Scanner input;
 
     public void start() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Адрес сервера или любая буква для localhost:");
+        String serverAdres = in.nextLine();
+        if (serverAdres.length() < 5) {
+            serverAdres = "127.0.0.1";
+            System.out.println("Выбран стандартный адрес: " + serverAdres);
+        }
+        System.out.println("Порт или любая буква для 5000:");
+        String port = in.nextLine();
+        if (port.length() <= 1) {
+            port = "5000";
+            System.out.println("Выбран стандартный порт: " + port);
+        }
         try {
-            socket = new Socket("127.0.0.1", 5000);
+            socket = new Socket(serverAdres, Integer.valueOf(port));
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         while ((receivedMessage = reader.readLine()) != null) {
-                            System.out.println(receivedMessage);
+//                            if (!receivedMessage.contains(inputMessage)) {
+                                System.out.println(receivedMessage);
+//                            }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -44,8 +59,8 @@ class Client {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    input = new Scanner(System.in);
                     while (true) {
-                        input = new Scanner(System.in);
                         inputMessage = input.nextLine();
                         try {
                             writer = new PrintWriter(socket.getOutputStream());
