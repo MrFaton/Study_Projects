@@ -24,7 +24,7 @@ class Server {
 
     public Server() {
         myUsers = new HashMap<>(5);
-        myUsers.put("Mr_Faton", "907257");
+        myUsers.put("Mr_Faton", "125");
         myUsers.put("genyka", "qwertyui");
     }
 
@@ -58,6 +58,7 @@ class Server {
         private PrintWriter writeToClient;
         private String login;
         private String password;
+        private BufferedReader reader;
 
         @Override
         public void run() {
@@ -65,33 +66,44 @@ class Server {
                 writeToClient = new PrintWriter(client.getOutputStream());
                 myClients.add(this);
                 calendar = Calendar.getInstance();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                writeToClient.println("Добро пожаловать на сервер :-) Дата на сервере: " +
-                        String.format("%tA %<td/%<tm/%<ty %<tT", calendar));
+                reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                clientNotification("Добро пожаловать на сервер :-) Дата на сервере: " +
+                        String.format("%tA %<td/%<tm/%<ty %<tT", calendar) +
+                        "\nДля завершения соединения введи: \"вввв\"");
                 do {
-                    writeToClient.println("Ваш логин:");
-                    writeToClient.flush();
+                    clientNotification("Ваш логин:");
                     login = reader.readLine();
-                    writeToClient.println("Ваш пароль:");
-                    writeToClient.flush();
+                    clientNotification("Ваш пароль:");
                     password = reader.readLine();
                     if (!(myUsers.get(login)).equals(password)) {
                         writeToClient.println("Логин или пароль не верен, попробуй ещё раз...");
                         writeToClient.flush();
                     }
                 } while (!(myUsers.get(login)).equals(password));
-                writeToClient.println("Авторизация пройдена успешно! Спасибо что пришёл " + login);
-                writeToClient.flush();
+                clientNotification("Авторизация пройдена успешно! Спасибо что пришёл " + login);
 
                 while (true) {
                     calendar = Calendar.getInstance();
-                    message = login + ": " + reader.readLine() + " (в: " + String.format("%tT", calendar) + ")";
-                    System.out.println(message);
-                    messageAll(message, this);
+                    message = reader.readLine();
+                    if (!message.equals("вввв")) {
+                        message = login + ": " + message + " (в: " + String.format("%tT", calendar) + ")";
+                        System.out.println(message);
+                        messageAll(message, this);
+                    } else {
+                        clientNotification(login + ", ты отключен от сервера. Приходи ещё как-нибудь :-) (в: " +
+                                String.format("%tT", calendar) + ")");
+                        socket.close();
+                        writeToClient.close();
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+
+        private void clientNotification(String notification) throws IOException {
+            writeToClient.println(notification);
+            writeToClient.flush();
         }
     }
 }

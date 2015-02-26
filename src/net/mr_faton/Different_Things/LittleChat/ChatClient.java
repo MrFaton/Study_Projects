@@ -26,13 +26,13 @@ class Client {
 
     public void start() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Адрес сервера или любая буква для localhost:");
+        System.out.println("Адрес сервера или Enter для localhost:");
         String serverAdres = in.nextLine();
         if (serverAdres.length() < 5) {
             serverAdres = "127.0.0.1";
             System.out.println("Выбран стандартный адрес: " + serverAdres);
         }
-        System.out.println("Порт или любая буква для 5000:");
+        System.out.println("Порт или Enter для 5000:");
         String port = in.nextLine();
         if (port.length() <= 1) {
             port = "5000";
