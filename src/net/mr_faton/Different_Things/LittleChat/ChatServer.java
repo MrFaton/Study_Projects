@@ -67,7 +67,7 @@ class Server {
                 writeToClient = new PrintWriter(client.getOutputStream());
                 myClients.add(this);
                 calendar = Calendar.getInstance();
-                reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+                reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "windows-1251"));
                 clientNotification("Добро пожаловать на сервер :-) Дата на сервере: " +
                         String.format("%tA %<td/%<tm/%<ty %<tT", calendar) +
                         "\nДля завершения соединения введи: \"вввв\"");
