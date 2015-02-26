@@ -21,7 +21,7 @@ class Client {
     private BufferedReader reader;
     private PrintWriter writer;
     private String receivedMessage;
-    private String inputMessage = "/*-+";
+    private String inputMessage;
     private Scanner input;
 
     public void start() {
@@ -45,10 +45,11 @@ class Client {
                 public void run() {
                     try {
                         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                        while ((receivedMessage = reader.readLine()) != null) {
+                        while (!socket.isClosed() && (receivedMessage = reader.readLine()) != null) {
                             System.out.println(receivedMessage);
                         }
                     } catch (IOException e) {
+                        System.err.println("from here");
                         e.printStackTrace();
                     }
                 }
@@ -58,12 +59,18 @@ class Client {
                 @Override
                 public void run() {
                     input = new Scanner(System.in);
-                    while (true) {
+                    while (!socket.isClosed()) {
                         inputMessage = input.nextLine();
                         try {
                             writer = new PrintWriter(socket.getOutputStream());
                             writer.println(inputMessage);
                             writer.flush();
+                            if (inputMessage.equals("вввв")) {
+                                reader.close();
+                                writer.close();
+                                socket.close();
+
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
