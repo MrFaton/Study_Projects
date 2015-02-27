@@ -67,7 +67,7 @@ class Server {
                 writeToClient = new PrintWriter(client.getOutputStream());
                 myClients.add(this);
                 calendar = Calendar.getInstance();
-                reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "windows-1251"));
+                reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "IBM866"));
                 clientNotification("Добро пожаловать на сервер :-) Дата на сервере: " +
                         String.format("%tA %<td/%<tm/%<ty %<tT", calendar) +
                         "\nДля завершения соединения введи: \"вввв\"");
@@ -98,6 +98,9 @@ class Server {
                     } else {
                         clientNotification(login + ", ты отключен от сервера. Приходи ещё как-нибудь :-) (в: " +
                                 String.format("%tT", calendar) + ")");
+                        String bye = login + " отключился от сервера...";
+                        System.out.println(bye);
+                        messageAll(bye, this);
                         reader.close();
                         writeToClient.close();
                         socket.close();

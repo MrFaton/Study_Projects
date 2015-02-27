@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -49,7 +50,6 @@ class Client {
                             System.out.println(receivedMessage);
                         }
                     } catch (IOException e) {
-                        System.err.println("from here");
                         e.printStackTrace();
                     }
                 }
@@ -59,20 +59,23 @@ class Client {
                 @Override
                 public void run() {
                     input = new Scanner(System.in);
+                    try {
+                        writer = new PrintWriter(socket.getOutputStream());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     while (!socket.isClosed()) {
                         inputMessage = input.nextLine();
-                        try {
-                            writer = new PrintWriter(socket.getOutputStream());
-                            writer.println(inputMessage);
-                            writer.flush();
-                            if (inputMessage.equals("вввв")) {
+                        writer.println(inputMessage);
+                        writer.flush();
+                        if (inputMessage.equals("вввв")) {
+                            try {
                                 reader.close();
                                 writer.close();
                                 socket.close();
-
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
                     }
                 }

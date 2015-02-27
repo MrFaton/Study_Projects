@@ -1,8 +1,9 @@
 package net.mr_faton.Test;
 
+import java.nio.charset.Charset;
+
 public class Test {
     public static void main(String[] args) {
-        String p = System.getProperty("user.dir");
-        System.out.println(p);
+        System.out.println(Charset.availableCharsets());
     }
 }
