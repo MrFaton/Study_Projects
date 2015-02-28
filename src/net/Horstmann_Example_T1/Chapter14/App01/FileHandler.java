@@ -49,12 +49,12 @@ public class FileHandler implements Runnable {
                     System.out.println("Обработчик: бросил файл остановки назад в очередь...");
                     done = true;
                 } else {
-                    threadPool.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            processFile(file);
-                        }
-                    });
+//                    threadPool.submit(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            processFile(file);
+//                        }
+//                    });
                 }
             }
         } catch (InterruptedException e) {
