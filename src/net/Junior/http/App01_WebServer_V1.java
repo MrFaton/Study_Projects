@@ -16,7 +16,7 @@ public class App01_WebServer_V1 {
     public static void main(String[] args) {
         try {
             //если указать другой порт, то в браузере после ":" нужно указывать порт ServerSocket-a
-            serverSocket = new ServerSocket(81);
+            serverSocket = new ServerSocket(80);
             while (true) {
                 System.out.println("Ожидаем соединения...");
                 socket = serverSocket.accept();
@@ -28,20 +28,22 @@ public class App01_WebServer_V1 {
                     System.out.println(new String(request, "US-ASCII"));
 
                     String gritting = "Привет, это комп Игоряна. Всё работает хорошо!";
+//                    String gritting = "Привет моя мышка маленькая,\nпривет моя птика сладкая)\nМой маленький сервер работает!";
                     out.write(gritting.getBytes("windows-1251"));
                     calendar = Calendar.getInstance();
-                    String date ="\nДата на сервере: " + String.format("%tA %<td/%<tm/%<ty %<tT", calendar);
+                    String date = "\nДата на сервере:\n" + String.format("%tA %<td/%<tm/%<ty %<tT", calendar);
                     out.write(date.getBytes("windows-1251"));
 
                     out.flush();
                 } finally {
                     socket.close();
                 }
+                calendar = Calendar.getInstance();
+                System.out.println("Последнее подключение в: " + String.format("%tT", calendar));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
     }

@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T1.Chapter14.App01;
+package net.Horstmann_Example_T1.Chapter14.App01_BlockingQueue_and_ThreadPool;
 
 import java.io.File;
 import java.util.concurrent.BlockingQueue;
@@ -9,7 +9,6 @@ import java.util.concurrent.BlockingQueue;
 public class FileSearcher implements Runnable {
     private BlockingQueue<File> queue;
     private File directoryPath;
-    //передаёт в очередь этот файл, сигнализируя потокам-обработчикам о том, что файлов к добавлению в очередь уже нет
     public static final File STOP_WORK = new File("STOP");
 
     public FileSearcher(File directoryPath, BlockingQueue<File> queue) {
@@ -23,27 +22,20 @@ public class FileSearcher implements Runnable {
 
     public void run() {
         try {
-            //поисковик и забиватель файлов в очередь
             searchFiles(directoryPath);
-            //когда файлы в каталоге закончились, добавляет этот файл, сигнализируя об окончании работы
             queue.put(STOP_WORK);
-            System.out.println("Искатель: положил файл, сигнализирующий об остановке");
         } catch (InterruptedException ex) {
             System.out.println("Поток прерван по требованию");
             return;
         }
     }
 
-    //ищет и добавляет файлы в очередь
     private void searchFiles(File directory) throws InterruptedException {
-        //получем список файлов в каталоге
         File[] files = directory.listFiles();
         for (File file : files) {
             if (file.isDirectory()) {
-                //если это папка, то заходим в неё рекурсивно и перебираем там все файлы
                 searchFiles(file);
             } else {
-                //если не папка, то добавляем файл в очередь
                 queue.put(file);
             }
         }

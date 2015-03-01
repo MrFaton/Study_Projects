@@ -49,7 +49,8 @@ public class FileHandler implements Runnable {
             lineNumber++;
             String line = in.nextLine();
             if (line.contains(keyWord)) {
-                System.out.println("Искомое слово найдено в файле: " + file.getPath() + ", в строке: " + lineNumber + ", строка: " + line);
+                System.out.println("Искомое слово найдено в файле: " + file.getPath() + ", в строке: " +
+                        lineNumber + ", строка: " + line.trim());
             }
         }
     }
