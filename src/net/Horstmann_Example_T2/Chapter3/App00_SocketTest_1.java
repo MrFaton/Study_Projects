@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class App00_SocketTest_1 {
     public static void main(String[] args) {
-        try(Socket socket = new Socket()) {
+        try (Socket socket = new Socket()) {
 //            socket.connect(new InetSocketAddress("time-A.timefreq.bldrdoc.gov", 13), 5000);
             socket.connect(new InetSocketAddress("horstmann.com", 80), 5000);
             socket.setSoTimeout(10000);

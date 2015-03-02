@@ -16,6 +16,7 @@ public class TextMatcher_V2 {
     private static File directoryPath;
     //ключевое слово, которое нужно найти
     private static String keyWord;
+    //пулл потоков
     private static ExecutorService threadPool;
 
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class TextMatcher_V2 {
 
         //создаём объект блокирующей очереди ArrayBlockingQueue типа BlockingQueue
         BlockingQueue<File> queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
+        //создаём пул при помощи метода-фабрики newFixedThreadPool
         threadPool = Executors.newFixedThreadPool(NUM_OF_HANDLE_THREADS);
 
         long workTime = System.currentTimeMillis();
@@ -42,3 +44,11 @@ public class TextMatcher_V2 {
         System.out.println("Работа завершена за: " + workTime);
     }
 }
+/*
+Принци работы этого класса не отличается от остальных версий.
+Единственное отличие - это тип созданного пула потоков.
+Тут пул реализован при помощи метода-фабрики newFixedThreadPool. Как он работает?
+Создаётся пул с фиксированным количеством потоков NUM_OF_HANDLE_THREADS, которые постоянно работают.
+
+На этой задаче этот класс показал минимальное время работы.
+ */

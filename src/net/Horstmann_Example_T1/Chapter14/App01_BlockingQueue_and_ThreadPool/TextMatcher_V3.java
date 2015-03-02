@@ -30,6 +30,7 @@ public class TextMatcher_V3 {
 
         //создаём объект блокирующей очереди ArrayBlockingQueue типа BlockingQueue
         BlockingQueue<File> queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
+        //создаём пул при помощи метода-фабрики newCachedThreadPool
         threadPool = Executors.newCachedThreadPool();
 
         long workTime = System.currentTimeMillis();
@@ -45,3 +46,12 @@ public class TextMatcher_V3 {
         System.out.println("Работа завершена за: " + workTime);
     }
 }
+/*
+Принци работы этого класса не отличается от остальных версий.
+Единственное отличие - это тип созданного пула потоков.
+Тут пул реализован при помощи метода-фабрики newCachedThreadPool. Как он работает?
+Пулл создает потоки по мере необходимости, но переиспользует неактивные потоки (и подчищает потоки, которые были
+неактивные некоторое время).
+
+На этой задаче этот класс показал максимальное время работы.
+ */

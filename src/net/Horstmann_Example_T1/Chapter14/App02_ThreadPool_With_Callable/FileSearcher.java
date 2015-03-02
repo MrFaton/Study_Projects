@@ -22,6 +22,10 @@ public class FileSearcher implements Callable {
     }
 
     @Override
+    /*
+    тут в качестве возвращаемого значения испльзуется класс Void! Это говорит о том, что не надо ждать
+    возвращаемых результатов
+     */
     public Void call() throws InterruptedException {
         searchFiles(directoryPath);
         queue.put(STOP_WORK);

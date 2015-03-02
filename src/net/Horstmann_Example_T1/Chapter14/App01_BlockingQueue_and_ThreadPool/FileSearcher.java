@@ -7,8 +7,11 @@ import java.util.concurrent.BlockingQueue;
  * Created by root on 04.02.2015.
  */
 public class FileSearcher implements Runnable {
+    //блокирующая очередь
     private BlockingQueue<File> queue;
+    //пусть к корнеовой папке
     private File directoryPath;
+    //файл, символизирующий остановку процесса обработики файлов (поиска ключевого слова)
     public static final File STOP_WORK = new File("STOP");
 
     public FileSearcher(File directoryPath, BlockingQueue<File> queue) {
@@ -41,4 +44,7 @@ public class FileSearcher implements Runnable {
         }
     }
 }
-//класс, который занимается поиском всех файлов в указаном каталоке, находит файлы также во всех подкаталогах
+/*
+класс, который занимается поиском всех файлов в указаном каталоке, находит файлы также во всех подкаталогах и ложит в
+очередь
+ */

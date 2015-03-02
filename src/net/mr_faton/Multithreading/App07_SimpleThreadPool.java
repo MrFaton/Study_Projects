@@ -5,8 +5,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 
 /**
-* Created by root on 28.02.2015.
-*/
+ * Created by root on 28.02.2015.
+ */
 public class App07_SimpleThreadPool {
     //создаём блокирующую очередь типа Callable
     private final BlockingQueue<Callable> taskList;
@@ -27,20 +27,24 @@ public class App07_SimpleThreadPool {
             worker.start();
         }
     }
+
     //метод, который добавляет задачу в очередь
     public <T> void submitIt(Callable<T> task) throws InterruptedException {
         taskList.put(task);
     }
+
     //завершает все потоки
     public void shutdown() {
         group.interrupt();
     }
+
     /*
     класс, который описывает выполнение работы каждого потока. Поток берёт задачу из очереди и вызывает метод call(),
     выполняя его внутренности. Класс реализован при помощи интерфейса Runnable
      */
     private class Worker implements Runnable {
         private int threadNum = num;
+
         @Override
         public void run() {
             while (true) {
@@ -59,6 +63,7 @@ public class App07_SimpleThreadPool {
         }
     }
 }
+
 //тестовый класс
 class Test_App07 {
     /*

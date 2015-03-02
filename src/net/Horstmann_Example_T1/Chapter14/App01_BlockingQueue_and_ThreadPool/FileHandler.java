@@ -11,12 +11,17 @@ import java.util.concurrent.ThreadPoolExecutor;
  * Created by root on 04.02.2015.
  */
 public class FileHandler implements Runnable {
+    //блокирующая очередь, в которой лежиат пути к файлам
     private BlockingQueue<File> queue;
+    //ключевое слово для поиска
     private final String keyWord;
+    //пулл потоков, куда мы будем ложить задачу поиска ключевого слова в файле
     private final ExecutorService threadPool;
+    //считчик максимального колличества потоков, зафиксированного в пуле
     private int maxCountOfThreads = 0;
 
     public FileHandler(String keyWord, BlockingQueue<File> queue, final ExecutorService threadPool) {
+        //проверяем содержит ли keyWord хоть какое-то значение
         if (keyWord.length() == 0 | keyWord == null) {
             String exStr = "Неверное ключевое слово: " + keyWord;
             throw new IllegalArgumentException(exStr);
@@ -26,23 +31,31 @@ public class FileHandler implements Runnable {
         this.threadPool = threadPool;
     }
 
+    //тело нашего потока-обработчика файлов
     public void run() {
         while (true) {
+            //в этой переменной содержится пусть к обрабатываемому файлу
             File currentFile;
             try {
+                //берём путь к файлу из очереди
                 currentFile = queue.take();
             } catch (InterruptedException e) {
                 break;
             }
+            //если файл НЕ равен файлу остановки, обрабатываем текущий файл, иначе прекращаем цикл обработки
             if (currentFile != FileSearcher.STOP_WORK) {
+                //создаём новый поток обработчика Worker и бросаем его в пулл потоков на выполнение
                 threadPool.submit(new Worker(currentFile));
-                maxCountOfThreads = Math.max(((ThreadPoolExecutor)threadPool).getPoolSize(), maxCountOfThreads);
+                //посчитываем максимальное число потоков в пуле
+                maxCountOfThreads = Math.max(((ThreadPoolExecutor) threadPool).getPoolSize(), maxCountOfThreads);
             } else {
                 try {
+                    //если файл равен файлу остановке, ложим его обратно в очередь и останавливаемся
                     queue.put(currentFile);
                 } catch (InterruptedException e) {
                     break;
                 }
+                //выключаем пулл потоков!!!
                 threadPool.shutdown();
                 System.out.println("Максимально колличество потоков во время работы: " + maxCountOfThreads);
                 break;
@@ -50,6 +63,10 @@ public class FileHandler implements Runnable {
         }
     }
 
+    /*
+    Класс, имплементящий интерфайс Runnable. В его методе run хранится задача (логика) обработки файла из очереди.
+    Экземпляр этого класса передаётся пулу потоков для реализации. Пул потоков мог принять наследника Callable
+     */
     private class Worker implements Runnable {
         private Scanner in;
         private File file;
@@ -77,4 +94,4 @@ public class FileHandler implements Runnable {
         }
     }
 }
-//Класс, который берёт из очереди файл и ощет в нём ключевое слово
+//Класс, который берёт из очереди файл и ощет в нём ключевое слово. Организован он с помощью имплементации Runnable

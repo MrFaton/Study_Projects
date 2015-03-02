@@ -35,6 +35,7 @@ public class App08_SimpleThreadPool_V2 {
 
     private class Worker implements Runnable {
         private int number = numOfThread;
+
         @Override
         public void run() {
             while (true) {

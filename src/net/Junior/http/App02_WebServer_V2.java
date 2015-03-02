@@ -51,3 +51,7 @@ class ClientSender implements Runnable {
         }
     }
 }
+
+/*
+Многопоточный веб-сервер. Реализован при помощь пула потокв, а именно ThreadPoolExecutor.
+ */

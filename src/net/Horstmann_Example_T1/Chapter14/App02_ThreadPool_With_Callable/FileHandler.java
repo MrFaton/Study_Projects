@@ -48,7 +48,11 @@ public class FileHandler implements Callable {
         }
 
         @Override
-        public Object call() throws Exception {
+        /*
+        тут в качестве возвращаемого значения испльзуется класс Void! Это говорит о том, что не надо ждать
+        возвращаемых результатов
+         */
+        public Void call() throws Exception {
             in = new Scanner(file);
             int lineNumber = 0;
             while (in.hasNext()) {
