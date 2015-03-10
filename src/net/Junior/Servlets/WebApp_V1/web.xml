@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <!--CONTROLLERS-->
+    <!--BaseController-->
+    <servlet>
+        <servlet-name>baseController</servlet-name>
+        <servlet-class>net.Junior.Servlets.WebApp_V1.BaseController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>baseController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!--AnotherController-->
+    <servlet>
+        <servlet-name>anotherController</servlet-name>
+        <servlet-class>net.Junior.Servlets.WebApp_V1.AnotherController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>anotherController</servlet-name>
+        <!--тут правильная ссылка, смотри описание вконце BaseController-->
+        <url-pattern>/another.do</url-pattern>
+    </servlet-mapping>
+</web-app>
