@@ -7,6 +7,6 @@ import java.io.File;
  */
 public class FolderMaker {
     public static void main(String[] args) {
-        new File("C:/" + "net\\Junior\\Servlets\\WebApp_V1").mkdirs();
+        new File("C:/" + "net\\Junior\\Servlets\\WebApp_V2\\filters").mkdirs();
     }
 }

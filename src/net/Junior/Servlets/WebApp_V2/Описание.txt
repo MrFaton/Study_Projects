@@ -1,0 +1,21 @@
+Этот проект содержит 2 сервлета и 3 фильтра.
+
+Сервлет "MainPage_Controller" запускается когда заходишь на главную страницу "http://localhost:8080/test"
+Сервлет "AnotherPage_Controller" запускается когда заходишь на страницу "http://localhost:8080/test/another-page",
+а также на любую другую страницу, которая идёт после "another-page", например
+на "http://localhost:8080/test/another-page/kjjhjh".
+
+Фильтр "BaseFilter". Его задача реализовать интерфейс "Filter", а именно методы init и destroy ничего не делают, а вот
+метод "doFilter" делает следующее: мы оверлоадим метод "doFilter" (т.е. у нас теперь есть два метода "doFilter",
+оригинальный, который принемает в качестве аргументов "ServletRequest" и "ServletResponse", и наш новый метод, который
+принемает в качестве аргументов "HttpServletRequest" и "HttpServletResponse") и наш оригинальный метод "doFilter"
+вызывает другой метод "doFilter" и приводит предка к потомку "ServletRequest" к "HttpServletRequest".
+Далее, оставшиеся 2 фильтра экстендят этот фильтр и их метод "doFilter" уже работает с "HttpServletResponse".
+
+Фильтр "ProcessingTime_Filter" измеряет время выполнения от момента прихода запроса и до момента отправки ответа к
+клиенту. Он работает по любому ЮРЛ, т.к. в web.xml указано
+<filter-name>processingTime_Filter</filter-name>
+<url-pattern>/*</url-pattern>
+
+Фильтр "RequestInfo_Filter" выдаюёт некоторые элементы запроса. Работает только при запуске сервлета
+"anotherPage_Controller"
