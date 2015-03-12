@@ -1,0 +1,6 @@
+Описание о том, как идут запросы через фильтры в тетраде в конеце 6-ой лекции
+
+В этом примере получается что по запросу "/" работают два фильтра, а по запросу "/another.do", только фильтр
+"ProcessingTime_Filter". Потому что у "ProcessingTime_Filter" <url-pattern>/*</url-pattern>, что означает любую ссылку,
+ а у фильтра "RequestInfo_Filter" <servlet-name>mainPage_Controller</servlet-name>, который мапится на ЮРЛ "/",
+ следовательно этот фильтр не учатсвует при запросе "/another.do"
