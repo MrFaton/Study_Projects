@@ -1,0 +1,7 @@
+Для того, чтобы в Tomcat-е сразу попадать в нужный ЮРЛ без имени проекта, то есть чтобы не было так:
+"http://localhost:8080/test_project/main.do" и было так:
+"http://localhost:8080/main.do", war-файл нужно назвать ROOT.war.\
+
+Для того, чтобы Tomcat работал на порту 80 (а не на 8080), это кстати даст возможность не указывать порт в юрл,
+т.е. вместо "localhost:8080" можно будет указывать просто "localhost". Порт меняется в файле: "tomcat\server.xml" в
+<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />

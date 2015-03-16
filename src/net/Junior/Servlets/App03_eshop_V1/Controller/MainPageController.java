@@ -10,14 +10,17 @@ import java.io.IOException;
  * Created by Mr_Faton on 15.03.2015.
  */
 public class MainPageController extends HttpServlet {
-    public static final String PARAM_ID = "id";
-    public static final String ATTRIBUTE_TO_VIEW = "product";
-    public static final String PAGE_MAIN = "main.jsp";
-    public static final String PAGE_OK = "product.jsp";
-    public static final String PAGE_ERROR = "error.jsp";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(PAGE_MAIN).forward(req, resp);
+        String requestURI = req.getRequestURI();
+        System.out.println(req.getRequestURI());
+        if (requestURI.equals("/") || requestURI.equals("/main") || requestURI.equals("/main.do") ||
+                requestURI.equals("/images/background.jpg")) {
+            req.getRequestDispatcher(Statements.PAGE_MAIN).forward(req, resp);
+        } else {
+            resp.sendRedirect(Statements.PAGE_ERROR);
+        }
         return;
     }
 }

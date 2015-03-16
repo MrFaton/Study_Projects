@@ -13,4 +13,12 @@
         <servlet-name>mainPageController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>productController</servlet-name>
+        <servlet-class>net.Junior.Servlets.App03_eshop_V1.Controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productController</servlet-name>
+        <url-pattern>/product.do</url-pattern>
+    </servlet-mapping>
 </web-app>
