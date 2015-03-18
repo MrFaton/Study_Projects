@@ -15,8 +15,7 @@ public class MainPageController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String requestURI = req.getRequestURI();
         System.out.println(req.getRequestURI());
-        if (requestURI.equals("/") || requestURI.equals("/main") || requestURI.equals("/main.do") ||
-                requestURI.equals("/images/background.jpg")) {
+        if (requestURI.equals("/") || requestURI.equals("/main") || requestURI.equals("/main.do")) {
             req.getRequestDispatcher(Statements.PAGE_MAIN).forward(req, resp);
         } else {
             resp.sendRedirect(Statements.PAGE_ERROR);

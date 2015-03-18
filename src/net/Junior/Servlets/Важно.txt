@@ -5,3 +5,8 @@
 Для того, чтобы Tomcat работал на порту 80 (а не на 8080), это кстати даст возможность не указывать порт в юрл,
 т.е. вместо "localhost:8080" можно будет указывать просто "localhost". Порт меняется в файле: "tomcat\server.xml" в
 <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
+
+Для того, чтобы Tomcat отдавал изображения, например по запросу "http://localhost:8080/images/background.jpg" нужно чтобы
+папка с файлом "images/background.jpg" хранилась не в папке с названием приложения, а просто в папке "webapps" внутри
+Tomcat-а: "webapps\images\background.jpg". Так работает если в jsp тоже указывается:
+"background: url("images/background.jpg");"
