@@ -10,3 +10,6 @@ public interface Statements {
     public static final String PAGE_OK = "product.jsp";
     public static final String PAGE_ERROR = "error.jsp";
 }
+/*
+Интрфейс, который содержит все константы, которые испльзуют другие классы
+ */
