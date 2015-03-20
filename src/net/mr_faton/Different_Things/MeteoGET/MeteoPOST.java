@@ -18,7 +18,7 @@ public class MeteoPOST {
         final String needDataURLEncoded = URLEncoder.encode(needData, "koi8-u");
         final String quarryStr = "find=" + needDataURLEncoded + "&find1=&dip=1&srok=2015-03-19";
 
-        Socket socket = new Socket("91.216.232.13", 80);
+        final Socket socket = new Socket("91.216.232.13", 80);
         Thread thwriter = new Thread(new Runnable() {
             @Override
             public void run() {

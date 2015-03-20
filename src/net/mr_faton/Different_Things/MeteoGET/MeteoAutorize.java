@@ -12,7 +12,7 @@ public class MeteoAutorize {
         Base64.Encoder encoder = Base64.getEncoder();
         String auth = encoder.encodeToString(key.getBytes());
         final String authorization = "Authorization: Basic " + auth + "\r\n";
-        Socket socket = new Socket("91.216.232.13", 80);
+        final Socket socket = new Socket("91.216.232.13", 80);
         Thread thwriter = new Thread(new Runnable() {
             @Override
             public void run() {
