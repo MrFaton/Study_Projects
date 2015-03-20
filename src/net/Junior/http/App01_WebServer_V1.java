@@ -25,10 +25,11 @@ public class App01_WebServer_V1 {
                      OutputStream out = socket.getOutputStream()) {
                     byte[] request = new byte[8192];
                     in.read(request);
+                    System.out.println("Request-->");
                     System.out.println(new String(request, "US-ASCII"));
+                    System.out.println("<--Request");
 
                     String gritting = "Привет, это комп Игоряна. Всё работает хорошо!";
-//                    String gritting = "Привет моя мышка маленькая,\nпривет моя птика сладкая)\nМой маленький сервер работает!";
                     out.write(gritting.getBytes("windows-1251"));
                     calendar = Calendar.getInstance();
                     String date = "\nДата на сервере:\n" + String.format("%tA %<td/%<tm/%<ty %<tT", calendar);

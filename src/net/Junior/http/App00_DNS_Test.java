@@ -11,7 +11,7 @@ import java.net.InetAddress;
 public class App00_DNS_Test {
     public static void main(String[] args) throws Exception {
         NameService dns = new DNSNameService();
-        InetAddress[] addresses = dns.lookupAllHostAddr("twitter.com ");
+        InetAddress[] addresses = dns.lookupAllHostAddr("twitter.com");
         //IP адреса, по которым можно попасть на www.google.com.ua
         for (InetAddress address : addresses) {
             System.out.println(address);

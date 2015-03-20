@@ -1,16 +1,15 @@
 package net.mr_faton.Test;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Base64;
 
 public class Test {
-    public static void main(String[] args) {
-        AtomicInteger counter = new AtomicInteger(1);
-        int y = 1;
-        for (int i = 0; i < 5; i++) {
-//            int x = counter.getAndIncrement();
-            int x = y++;
-            System.out.println(x);
-
-        }
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str = "САУР*КИХА";
+        String encodedStr = URLEncoder.encode(str, "koi8-u");
+        System.out.println(encodedStr);
+        System.out.println(encodedStr.length());
     }
 }
