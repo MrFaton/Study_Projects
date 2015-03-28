@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <!--CONTROLLERS-->
+    <servlet>
+        <servlet-name>productsAllController</servlet-name>
+        <servlet-class>net.Junior.Servlets.App07_eshop_V2.controller.ProductsAllController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productsAllController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>productController</servlet-name>
+        <servlet-class>net.Junior.Servlets.App07_eshop_V2.controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productController</servlet-name>
+        <url-pattern>/product.do</url-pattern>
+    </servlet-mapping>
+    <!--FILTERS-->
+    <filter>
+        <filter-name>requestInfoFilter</filter-name>
+        <filter-class>net.Junior.Servlets.App07_eshop_V2.filter.RequestInfoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>requestInfoFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+</web-app>
