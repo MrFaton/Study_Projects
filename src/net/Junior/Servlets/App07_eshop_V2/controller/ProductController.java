@@ -2,7 +2,7 @@ package net.Junior.Servlets.App07_eshop_V2.controller;
 
 import net.Junior.Servlets.App07_eshop_V2.dao.implementation.ProductDAOImpl;
 import net.Junior.Servlets.App07_eshop_V2.dao.ProductDAO;
-import net.Junior.Servlets.App07_eshop_V2.statments.Statements;
+import net.Junior.Servlets.App07_eshop_V2.statements.Statements;
 import net.Junior.Servlets.App07_eshop_V2.entity.Product;
 import net.Junior.Servlets.App07_eshop_V2.dao.exceptions.NoSuchEntityException;
 import net.Junior.Servlets.App07_eshop_V2.dao.exceptions.DAOSystemException;
