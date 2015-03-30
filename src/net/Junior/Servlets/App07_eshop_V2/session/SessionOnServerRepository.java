@@ -9,11 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class SessionOnServerRepository {
     private final static Map<String, Session_User> sessions = new ConcurrentHashMap<>();
-    public static Session_User getSessionById(String sessionID) {
+    public /*static*/ Session_User getSessionById(String sessionID) {
         return getSessionById(sessionID, true);
     }
 
-    public static Session_User getSessionById(String sessionID, boolean canCreate) {
+    public /*static*/ Session_User getSessionById(String sessionID, boolean canCreate) {
         Session_User session_user = sessions.get(sessionID);
         if (session_user == null && canCreate) {
             session_user = new Session_User();

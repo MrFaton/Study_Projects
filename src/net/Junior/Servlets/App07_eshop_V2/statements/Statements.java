@@ -12,4 +12,5 @@ public interface Statements {
     static final String ATTRIBUTE_PRODUCTS_LIST = "productsList";
     static final String ATTRIBUTE_PRODUCT = "product";
     static final String PARAM_ID = "id";
+    static final String COOKIE_JSESSIONID = "JSESSIONID";
 }
