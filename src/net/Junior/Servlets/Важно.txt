@@ -11,3 +11,12 @@
 Tomcat-а: "webapps\images\background.jpg". Так работает если в jsp тоже указывается:
 "background: url("images/background.jpg");". Почему не работает если папка "images" внутри проектна (например ROOT\images),
 не знаю. Работает только когда так: ""webapps\images\background.jpg".
+
+В какой момент Tomcat создаёт свою сессию (сессию по умолчанию)?
+Это происходит при вызове методов:
+request.getSession() или request.getSession(true), но при вызове request.getSession(false) сессия не создаётся,
+также СЕССИЯ АВТОМАТИЧЕСКИ СОЗДАЁТСЯ во время прехода на JSP страницу, т.е. когда
+request.getRequestDispatcher(Page.jsp).forward(request, response); - создаётся сессия внутри Tomcat-а, для того, чтобы
+это отключить на JSP страницу нужно добавить
+<%@ page session="false" %>
+Только в таком случае эта строка должна быть на всех используемы JSP-страницах

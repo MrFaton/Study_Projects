@@ -1,15 +1,21 @@
 package net.mr_faton.Test;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.Base64;
+import net.Junior.Servlets.App07_eshop_V2.entity.JSessionIdCreator;
 
 public class Test {
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String str = "САУР*КИХА";
-        String encodedStr = URLEncoder.encode(str, "koi8-u");
-        System.out.println(encodedStr);
-        System.out.println(encodedStr.length());
+    public static void main(String[] args) throws InterruptedException {
+        final JSessionIdCreator jSessionIdCreator = new JSessionIdCreator();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(jSessionIdCreator.generateID());
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(jSessionIdCreator.generateID());
+            }
+        }).start();
     }
 }

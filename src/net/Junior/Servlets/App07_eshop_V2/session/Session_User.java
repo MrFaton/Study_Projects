@@ -1,7 +1,6 @@
 package net.Junior.Servlets.App07_eshop_V2.session;
 
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -24,4 +23,5 @@ public class Session_User {
     public Iterator<String> getAllKeys() {
         return session.keySet().iterator();
     }
+
 }

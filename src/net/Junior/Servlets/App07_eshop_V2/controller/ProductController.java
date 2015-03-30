@@ -8,6 +8,7 @@ import net.Junior.Servlets.App07_eshop_V2.statements.Statements;
 import net.Junior.Servlets.App07_eshop_V2.entity.Product;
 import net.Junior.Servlets.App07_eshop_V2.dao.exceptions.NoSuchEntityException;
 import net.Junior.Servlets.App07_eshop_V2.dao.exceptions.DAOSystemException;
+import net.Junior.Servlets.App07_eshop_V2.entity.CookieFinder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -24,14 +25,10 @@ public class ProductController extends HttpServlet {
     private ProductDAO productDAO = new ProductDAOImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CookieFinder cookieFinder = new CookieFinder();
         try {
-            Cookie jsessionid_cookie = null;
-            Cookie[] cookies = request.getCookies();
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals(Statements.COOKIE_JSESSIONID));
-                jsessionid_cookie = cookie;
-                break;
-            }
+            Cookie jsessionid_cookie = cookieFinder.findCookieByName(Statements.COOKIE_JSESSIONID, request);
+
             Session_User sessionUser = null;
             if (jsessionid_cookie != null) {
                 sessionUser = sessionOnServerRepository.getSessionById(jsessionid_cookie.getValue());
