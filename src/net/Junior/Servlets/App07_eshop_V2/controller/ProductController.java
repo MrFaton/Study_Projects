@@ -21,7 +21,7 @@ import java.io.IOException;
  * Created by root on 28.03.2015.
  */
 public class ProductController extends HttpServlet {
-    private SessionOnServerRepository sessionOnServerRepository = new SessionOnServerRepository();
+    private SessionOnServerRepository sessionOnServerRepository = SessionOnServerRepository.getInstance();
     private ProductDAO productDAO = new ProductDAOImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -21,6 +21,14 @@
         <servlet-name>productController</servlet-name>
         <url-pattern>/product.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>sessionLifeWatcherThread</servlet-name>
+        <servlet-class>net.Junior.Servlets.App07_eshop_V2.controller.SessionLifeWatcherController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sessionLifeWatcherThread</servlet-name>
+        <url-pattern>/enable.do</url-pattern>
+    </servlet-mapping>
     <!--FILTERS-->
     <filter>
         <filter-name>requestInfoFilter</filter-name>

@@ -1,21 +1,17 @@
 package net.mr_faton.Test;
 
-import net.Junior.Servlets.App07_eshop_V2.entity.JSessionIdCreator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test {
     public static void main(String[] args) throws InterruptedException {
-        final JSessionIdCreator jSessionIdCreator = new JSessionIdCreator();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(jSessionIdCreator.generateID());
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(jSessionIdCreator.generateID());
-            }
-        }).start();
+        Map<String, Long> map = new ConcurrentHashMap<>();
+        map.put("1", 10L);
+        map.put("2", 20L);
+        map.put("3", 30L);
+        map.put("4", 40L);
+        System.out.println(map.values());
+        map.remove("3");
+        System.out.println(map.values());
     }
 }
