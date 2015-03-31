@@ -13,7 +13,8 @@ public class SessionLifeWatcher {
     private static SessionOnServerRepository sessionOnServerRepository = SessionOnServerRepository.getInstance();
 
 
-    private SessionLifeWatcher() {}
+    private SessionLifeWatcher() {
+    }
 
     public static synchronized SessionLifeWatcher getInstance() {
         System.out.println("------> SessionLifeWatcher getInstance()");
@@ -23,9 +24,9 @@ public class SessionLifeWatcher {
         return sessionLifeWatcher;
     }
 
-    public static synchronized void removeSession(String sessionId) throws IllegalArgumentException{
+    public static synchronized void removeSession(String sessionId) throws IllegalArgumentException {
         System.out.println("------> SessionLifeWatcher 1removeSession()");
-        if (sessionId == null || sessionId.length() == 0){
+        if (sessionId == null || sessionId.length() == 0) {
             throw new IllegalArgumentException("bad sessionId");
         }
         System.out.println("------> SessionLifeWatcher 2removeSession()");

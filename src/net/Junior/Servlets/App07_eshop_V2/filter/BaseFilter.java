@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by root on 28.03.2015.
  */
-public abstract class BaseFilter implements Filter{
+public abstract class BaseFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         //NOP
@@ -22,7 +22,7 @@ public abstract class BaseFilter implements Filter{
         System.out.println("--> BaseFilter: end call method with ServletRequest and ServletResponse");
     }
 
-    public abstract void doFilter (HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    public abstract void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException, ServletException;
 
     @Override

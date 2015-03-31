@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CookieFinder {
     public synchronized Cookie findCookieByName(String cookieName, HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        if (cookies == null){
+        if (cookies == null) {
             return null;
         }
         for (Cookie cookie : cookies) {

@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by Mr_Faton on 27.03.2015.
  */
-public class ProductDAOImpl implements ProductDAO{
+public class ProductDAOImpl implements ProductDAO {
     private final Map<Integer, Product> memory;
 
     public ProductDAOImpl() {

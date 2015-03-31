@@ -12,6 +12,7 @@ import java.util.List;
 public interface ProductDAO {
     //возвращает продукт по id
     public Product selectById(int id) throws DAOSystemException, NoSuchEntityException;
+
     //возвращает список всех продуктов из БД
     public List<Product> selectAll() throws DAOSystemException;
 }

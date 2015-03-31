@@ -9,6 +9,7 @@ public class SessionLifeWatcherThread implements Runnable {
     private final SessionLifeWatcher sessionLifeWatcher = SessionLifeWatcher.getInstance();
     private final SessionOnServerRepository sessionOnServerRepository = SessionOnServerRepository.getInstance();
     private static long sleepTime = 10_000;
+
     @Override
     public void run() {
         System.out.println("------> SessionLifeWatcherThread is run");

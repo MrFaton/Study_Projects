@@ -23,6 +23,7 @@ import java.io.IOException;
 public class ProductController extends HttpServlet {
     private SessionOnServerRepository sessionOnServerRepository = SessionOnServerRepository.getInstance();
     private ProductDAO productDAO = new ProductDAOImpl();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CookieFinder cookieFinder = new CookieFinder();

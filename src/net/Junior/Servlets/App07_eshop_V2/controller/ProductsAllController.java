@@ -22,6 +22,7 @@ import java.util.Map;
 public class ProductsAllController extends HttpServlet {
     private final ProductDAO productDAO = new ProductDAOImpl();
     private static final SessionOnServerRepository sessionOnServerRepository = SessionOnServerRepository.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestedURI = request.getRequestURI();

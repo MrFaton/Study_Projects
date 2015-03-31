@@ -15,7 +15,8 @@ public class SessionOnServerRepository {
     private final static JSessionIdCreator jSessionIdCreator = new JSessionIdCreator();
     private static SessionOnServerRepository sessionOnServerRepository = null;
 
-    private SessionOnServerRepository() {}
+    private SessionOnServerRepository() {
+    }
 
     public static synchronized SessionOnServerRepository getInstance() {
         System.out.println("------> SessionOnServerRepository getInstance()");
