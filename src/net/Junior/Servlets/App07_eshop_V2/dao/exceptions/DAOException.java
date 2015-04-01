@@ -17,3 +17,6 @@ public class DAOException extends Exception {
         super(cause);
     }
 }
+/*
+исключения, которые возможно выбрасывает наша база данных
+ */

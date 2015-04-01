@@ -16,3 +16,6 @@ public interface ProductDAO {
     //возвращает список всех продуктов из БД
     public List<Product> selectAll() throws DAOSystemException;
 }
+/*
+интерфейс к нашей как бы базе данных
+ */

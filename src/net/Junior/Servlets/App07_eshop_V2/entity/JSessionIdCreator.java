@@ -12,21 +12,26 @@ public class JSessionIdCreator {
 
     public synchronized String generateID() {
         Random random = new Random();
+        //выбрать букву или цифву
         int numberOrLetter = 0;
+        //выбрать элемент из массива
         int symbolPosition = 0;
+        //если буква, то большого или маленького регистра
         int smallOrBigLetter = 0;
         StringBuilder id = new StringBuilder();
+        //сгенерировать 25 символов
         for (int i = 0; i < 25; i++) {
+            //буква или цифра
             numberOrLetter = random.nextInt(2);
             switch (numberOrLetter) {
                 case 0: {
-                    //number
+                    //если цифра
                     symbolPosition = random.nextInt(numberArr.length);
                     id.append(numberArr[symbolPosition]);
                     break;
                 }
                 case 1: {
-                    //letter
+                    //если буква
                     symbolPosition = random.nextInt(letterArr.length);
                     smallOrBigLetter = random.nextInt(2);
                     switch (smallOrBigLetter) {
@@ -44,3 +49,6 @@ public class JSessionIdCreator {
         return id.toString();
     }
 }
+/*
+генератор ид сессии
+ */

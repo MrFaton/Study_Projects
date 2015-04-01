@@ -35,4 +35,6 @@ doFilter - получается как-бы виртуальный вызов м
 есть такой метод, вызываем его. Но в теле метода doFilter (ServletRequest, ServletResponse) асбстрактного класса
 BaseFilter есть вызов другого метода doFilter(HttpServletRequest , HttpServletResponse). Но у BaseFilter этот метод
 абстрактный, значит его реализация есть его потомка, у RequestInfoFilter. Да и таки тут есть этот метод и вызывается он.
+
+Фильтр отображает информацию о входящих заросах
  */

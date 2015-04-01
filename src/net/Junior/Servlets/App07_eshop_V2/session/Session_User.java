@@ -10,8 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by root on 28.03.2015.
  */
 public class Session_User {
+    //наша сессия представаляет собой мапу
     private final Map<String, Object> session = new ConcurrentHashMap<>();
-    private Long expiration;
+    //время, до какого момента живёт сессия, т.е. берётся текущее время + сколько заданно жить сессии
+    private long expiration;
 
     public Session_User() {
         setExpiration();
@@ -31,15 +33,19 @@ public class Session_User {
         return session.keySet().iterator();
     }
 
+    //установить время жизни сессии
     public void setExpiration() {
-        System.out.println("------> Session_User 1setExpiration()");
+        System.out.println("------> Session_User: setExpiration()");
         expiration = System.currentTimeMillis() + Statements.PARAM_SESSION_EXPIRATION;
-        System.out.println("------> Session_User 2setExpiration()" + expiration);
     }
 
-    public Long getExpiration() {
-        System.out.println("------> Session_User getExpiration()");
+    //получить время жизни сессии
+    public long getExpiration() {
+        System.out.println("------> Session_User: getExpiration()");
         return expiration;
     }
 
 }
+/*
+Конкретная сессия пользователя.
+ */

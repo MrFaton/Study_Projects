@@ -7,12 +7,12 @@ public interface Statements {
     static final String URI_MAIN_1 = "/productsAll.do";
     static final String URI_MAIN_2 = "/";
     static final String PAGE_MAIN = "productsAll.jsp";
-    static final String PAGE_PRODUCT = "product.jsp";
     static final String PAGE_ERROR = "error.jsp";
     static final String ATTRIBUTE_PRODUCTS_LIST = "productsList";
-    static final String ATTRIBUTE_PRODUCT = "product";
-    static final String PARAM_ID = "id";
-    static final String COOKIE_JSESSIONID = "JSESSIONID";
+    static final String COOKIE_JSESSIONID = "MY_JSESSIONID";
 
-    static final Long PARAM_SESSION_EXPIRATION = 2 * 60 * 1000L; // это преобразование 10 минт в миллисекунды
+    //сколько будет жить сессия с момента последнего доступа к ней
+    static final Long PARAM_SESSION_EXPIRATION = 2 * 60 * 1000L; // это преобразование 2 мин в миллисекунды
+    //если в хранилище нет сессий, то сколько будет спать поток-очиститель сессии, перед тем, как будет проверять сессии в хранилище
+    static final Long PARAM_SLEEP_TIME = 30_000L;
 }

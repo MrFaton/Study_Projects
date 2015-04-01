@@ -26,3 +26,6 @@ public class Product {
         return price;
     }
 }
+/*
+наш продукт
+ */

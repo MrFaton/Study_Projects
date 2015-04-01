@@ -10,6 +10,7 @@
             background: cover;
         }
     </style>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <body>
 <h1 style="text-align: center;">Добро пожаловать в наш интренет магазин продуктов!</h1>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Mr_Faton on 30.03.2015.
  */
 public class CookieFinder {
+    //передаём имя куки и запрос от пользователя, ищем куку по имени и возвращаем её, если такой нет, то возвращаем null
     public synchronized Cookie findCookieByName(String cookieName, HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {

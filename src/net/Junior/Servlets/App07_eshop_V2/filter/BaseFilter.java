@@ -30,3 +30,7 @@ public abstract class BaseFilter implements Filter {
         //NOP
     }
 }
+/*
+основной фильтр, который реализует интерфейс Filter и создаёт ещё один метод doFilter, который преобразовывает
+ServletRequest servletRequest, ServletResponse servletResponse в HttpServletRequest request, HttpServletResponse response
+ */
