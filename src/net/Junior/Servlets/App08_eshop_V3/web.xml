@@ -29,6 +29,14 @@
         <servlet-name>productAddToBasket</servlet-name>
         <url-pattern>/productAddToBasket.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>productRemoveFromBasket</servlet-name>
+        <servlet-class>net.Junior.Servlets.App08_eshop_V3.controller.ProductRemoveFromBasketController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productRemoveFromBasket</servlet-name>
+        <url-pattern>/productRemoveFromBasket.do</url-pattern>
+    </servlet-mapping>
 
     <!--FILTERS-->
     <filter>

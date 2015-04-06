@@ -30,7 +30,9 @@
     <c:forEach var="productFromBasket" items="${basket}">
         <li>
             <font size="4"><a href="/product.do?id=${productFromBasket.key.id}">${productFromBasket.key.name}</a> =
-                    ${productFromBasket.value}</font>
+                    ${productFromBasket.value} (<a
+                        href="/productRemoveFromBasket.do?id=${productFromBasket.key.id}">X</a>)
+            </font>
         </li>
     </c:forEach>
 </c:if>
