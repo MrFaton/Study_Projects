@@ -14,7 +14,7 @@ public interface Statements {
     static final String ATTRIBUTE_USER_SESSION = "userSession";
     static final String ATTRIBUTE_PRODUCT_TO_VIEW = "product";
     static final String ATTRIBUTE_BASKET = "basket";
-    static final String COOKIE_JSESSIONID = "MY_JSESSIONID";
+    static final String COOKIE_MY_SESSION = "MY_SESSION";
     static final int COOKIE_LIFETIME = 10 * 60;
     static final String PARAM_ID = "id";
 

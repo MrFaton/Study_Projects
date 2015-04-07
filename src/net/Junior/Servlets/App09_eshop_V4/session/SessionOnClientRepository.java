@@ -1,7 +1,10 @@
 package net.Junior.Servlets.App09_eshop_V4.session;
 
 
+import net.Junior.Servlets.App09_eshop_V4.statements.Statements;
+
 import javax.servlet.http.Cookie;
+import java.io.*;
 import java.util.Base64;
 
 /**
@@ -17,15 +20,33 @@ public class SessionOnClientRepository {
     }
 
     public Session_User getSessionByCookie(Cookie cookie, boolean canCreate) {
-        System.out.println("------> SessionOnClientRepository: getSessionById(Cookie cookie, boolean canCreate)");
-        String serializableSession = cookie.getValue();
-        byte[] sessionBytes = decoder.decode(serializableSession);
-        String sessionString = new String(sessionBytes);
-
+        System.out.println("------> SessionOnClientRepository: getSessionByCookie(Cookie cookie, boolean canCreate)");
+        String encodedSerializableSession = cookie.getValue();
+        if (encodedSerializableSession != null) {
+            byte[] sessionBytes = decoder.decode(encodedSerializableSession);
+            try (ByteArrayInputStream in = new ByteArrayInputStream(sessionBytes);
+                 ObjectInputStream objectInput = new ObjectInputStream(in)) {
+                Session_User session_user = (Session_User) objectInput.readObject();
+                return session_user;
+            } catch (IOException | ClassNotFoundException | ClassCastException ex) {/*NOP*/}
+        }
+        return null;
     }
 
-    public String createSession() {
+    public Cookie createSessionCookie(Session_User session_user) {
         System.out.println("------> SessionOnClientRepository: createSession()");
-
+        if (session_user != null) {
+            Cookie userSessionCookie;
+            try (ByteArrayOutputStream out = new ByteArrayOutputStream();
+                 ObjectOutputStream objectOutput = new ObjectOutputStream(out)) {
+                objectOutput.writeObject(session_user);
+                objectOutput.flush();
+                byte[] sessionBytes = out.toByteArray();
+                String encodedSerializableSession = encoder.encodeToString(sessionBytes);
+                userSessionCookie = new Cookie(Statements.COOKIE_MY_SESSION, encodedSerializableSession);
+                return userSessionCookie;
+            } catch (IOException ex) {/*NOP*/}
+        }
+        return null;
     }
 }

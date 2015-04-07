@@ -20,6 +20,6 @@ public interface Statements {
 
     //сколько будет жить сессия с момента последнего доступа к ней
     static final Long PARAM_SESSION_EXPIRATION = 10 * 60 * 1000L;
-
+    //веремя сна потока убийны сессий по дефолту, если в хранилище нет ни одной сессии
     static final Long PARAM_SLEEP_TIME = 10 * 60 * 1000L;
 }

@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class ProductsAllController extends HttpServlet {
     private static final ProductDAO productDAO = new ProductDAOImpl();
-    private static final SessionOnClientRepository SESSION_ON_CLIENT_REPOSITORY = SessionOnClientRepository.getInstance();
+    private SessionOnClientRepository sessionOnClientRepository = new SessionOnClientRepository();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,37 +30,25 @@ public class ProductsAllController extends HttpServlet {
         if (requestedURI.equals(Statements.URI_MAIN_1) || requestedURI.equals(Statements.URI_MAIN_2)) {
             CookieFinder cookieFinder = new CookieFinder();
             try {
-                Cookie jsessionid_cookie = cookieFinder.findCookieByName(Statements.COOKIE_JSESSIONID, request);
-                if (jsessionid_cookie != null) {
-                    String sessionId = jsessionid_cookie.getValue();
-                    System.out.println("-----> User has got a cookie: " + sessionId);
-                    Session_User session_user = SESSION_ON_CLIENT_REPOSITORY.getSessionById(sessionId, false);
+                Cookie sessionCookie = cookieFinder.findCookieByName(Statements.COOKIE_MY_SESSION, request);
+                if (sessionCookie != null) {
+                    System.out.println("-----> User has got a session cookie");
+                    Session_User session_user = sessionOnClientRepository.getSessionByCookie(sessionCookie, false);
                     if (session_user != null) {
                         session_user.setExpiration();
                         Map<Product, Integer> basket =
                                 (Map<Product, Integer>) session_user.get(Statements.ATTRIBUTE_BASKET);
                         request.setAttribute(Statements.ATTRIBUTE_BASKET, basket);
-                        jsessionid_cookie.setMaxAge(Statements.COOKIE_LIFETIME);//время жизни в секундах
-                        response.addCookie(jsessionid_cookie);
-                    } else {
-                        System.out.println("-----> But JSESSIONID doesn't find on server " + sessionId);
+                        sessionCookie.setMaxAge(Statements.COOKIE_LIFETIME);//время жизни в секундах
+                        response.addCookie(sessionCookie);
                     }
                 } else {
                     System.out.println("-----> User hasn't got a cookie, don't create session");
                 }
-
-                System.out.println("\n+++++> Sessions List");
-                for (Map.Entry<String, Session_User> element : SESSION_ON_CLIENT_REPOSITORY.getSessionsMap().entrySet()) {
-                    System.out.println(element.getKey());
-                }
-                System.out.println("+++++> End of Sessions List\n");
-
                 request.setAttribute(Statements.ATTRIBUTE_PRODUCTS_LIST, productDAO.selectAll());
                 request.getRequestDispatcher(Statements.PAGE_MAIN).forward(request, response);
                 return;
-            } catch (DAOSystemException exception) {
-                System.err.println("Проблемы с БД");
-            }
+            } catch (DAOSystemException ex) {/*NOP*/}
         }
         response.sendRedirect(Statements.PAGE_ERROR);
     }
