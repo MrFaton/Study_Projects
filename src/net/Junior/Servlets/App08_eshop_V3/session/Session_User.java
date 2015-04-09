@@ -1,6 +1,5 @@
 package net.Junior.Servlets.App08_eshop_V3.session;
 
-import net.Junior.Servlets.App08_eshop_V3.entity.Product;
 import net.Junior.Servlets.App08_eshop_V3.statements.Statements;
 
 import java.util.*;
@@ -11,7 +10,6 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Session_User {
     private final Map<String, Object> session = new ConcurrentHashMap<>();
-    private Map<Product, Integer> basket;
     private long expiration;
 
     public Session_User() {

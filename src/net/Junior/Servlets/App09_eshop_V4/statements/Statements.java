@@ -11,15 +11,9 @@ public interface Statements {
     static final String PAGE_PRODUCT = "product.jsp";
     static final String PAGE_ERROR = "error.jsp";
     static final String ATTRIBUTE_PRODUCTS_LIST = "productsList";
-    static final String ATTRIBUTE_USER_SESSION = "userSession";
     static final String ATTRIBUTE_PRODUCT_TO_VIEW = "product";
     static final String ATTRIBUTE_BASKET = "basket";
     static final String COOKIE_MY_SESSION = "MY_SESSION";
     static final int COOKIE_LIFETIME = 10 * 60;
     static final String PARAM_ID = "id";
-
-    //сколько будет жить сессия с момента последнего доступа к ней
-    static final Long PARAM_SESSION_EXPIRATION = 10 * 60 * 1000L;
-
-    static final Long PARAM_SLEEP_TIME = 10 * 60 * 1000L;
 }

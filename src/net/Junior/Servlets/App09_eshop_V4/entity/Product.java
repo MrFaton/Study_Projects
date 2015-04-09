@@ -1,9 +1,11 @@
 package net.Junior.Servlets.App09_eshop_V4.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Mr_Faton on 27.03.2015.
  */
-public class Product {
+public class Product implements Serializable {
     private final int id;
     private final String name;
     private final String price;
@@ -49,5 +51,5 @@ public class Product {
     }
 }
 /*
-наш продукт
+наш продукт, он должен быть сериализируемым, чтобы мы могли полжить его в куку
  */

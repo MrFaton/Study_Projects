@@ -5,7 +5,7 @@ import net.Junior.Servlets.App07_eshop_V2.session.exceptions.*;
 /**
  * Created by root on 28.03.2015.
  */
-public class SessionSystemException extends net.Junior.Servlets.App07_eshop_V2.session.exceptions.SessionException {
+public class SessionSystemException extends SessionException {
     public SessionSystemException() {
     }
 
