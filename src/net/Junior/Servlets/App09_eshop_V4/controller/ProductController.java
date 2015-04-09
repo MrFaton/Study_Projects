@@ -20,8 +20,8 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
-* Created by Mr_Faton on 05.04.2015.
-*/
+ * Created by Mr_Faton on 05.04.2015.
+ */
 public class ProductController extends HttpServlet {
     //как бы наша БД с продукутами
     private ProductDAO productDAO = new ProductDAOImpl();

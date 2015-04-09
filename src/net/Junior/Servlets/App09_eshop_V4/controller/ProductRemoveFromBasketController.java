@@ -21,8 +21,8 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
-* Created by Mr_Faton on 06.04.2015.
-*/
+ * Created by Mr_Faton on 06.04.2015.
+ */
 public class ProductRemoveFromBasketController extends HttpServlet {
     //как бы наша БД с продукутами
     private ProductDAO productDAO = new ProductDAOImpl();
@@ -52,7 +52,7 @@ public class ProductRemoveFromBasketController extends HttpServlet {
 
                 //если такая кука есть
                 if (sessionCookie != null) {
-                    try{
+                    try {
                         //пытаемся получить его сессию из его куки, но в случае не удачи не создаём новую сессию
                         session_user = sessionOnClientRepository.getSessionByCookie(sessionCookie, false);
                         //вытягиваем коризину с покупками клиента
@@ -89,7 +89,7 @@ public class ProductRemoveFromBasketController extends HttpServlet {
                                     //удаляем из сессии пользователя корзину с покупакми
                                     session_user.remove(Statements.ATTRIBUTE_BASKET);
                                 }
-                                try{
+                                try {
                                     //формируем новую куку с обновлённой сессией пользователя
                                     sessionCookie = sessionOnClientRepository.createSessionCookie(session_user);
                                     //устанавливаем время жизни куки

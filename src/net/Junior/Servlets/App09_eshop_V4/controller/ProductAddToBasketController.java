@@ -22,8 +22,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
-* Created by Mr_Faton on 05.04.2015.
-*/
+ * Created by Mr_Faton on 05.04.2015.
+ */
 public class ProductAddToBasketController extends HttpServlet {
     //как бы наша БД с продукутами
     private ProductDAO productDAO = new ProductDAOImpl();
@@ -57,7 +57,7 @@ public class ProductAddToBasketController extends HttpServlet {
                     session_user = new Session_User();
                 } else {
                     //значит у клиента была кука с сессией
-                    try{
+                    try {
                         //получаем сессию клиента из его куки
                         session_user = sessionOnClientRepository.getSessionByCookie(sessionCookie);
                     } catch (NoSuchSessionException ex) {
@@ -86,7 +86,7 @@ public class ProductAddToBasketController extends HttpServlet {
                 //ложим корзину в сессию пользователя
                 session_user.put(Statements.ATTRIBUTE_BASKET, basket);
 
-                try{
+                try {
                     //формируем новую куку с обновлённой сессией пользователя
                     sessionCookie = sessionOnClientRepository.createSessionCookie(session_user);
                     //устанавливаем время жизни куки
