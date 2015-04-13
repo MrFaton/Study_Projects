@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter3;
+package net.Horstmann_Example_T2.Chapter3_Network;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

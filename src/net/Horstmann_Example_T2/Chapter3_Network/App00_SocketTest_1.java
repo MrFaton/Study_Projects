@@ -1,8 +1,10 @@
-package net.Horstmann_Example_T2.Chapter3;
+package net.Horstmann_Example_T2.Chapter3_Network;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.util.Scanner;
 
 /**
  * Created by Mr_Faton on 18.02.2015.
