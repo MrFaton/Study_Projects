@@ -1,4 +1,4 @@
-package net.mr_faton.Test;
+package net.Horstmann_Example_T2.Chapter2;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,14 +7,17 @@ import org.w3c.dom.Text;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Test {
+public class App09_XML_DOM_BuildAndWrite_Simple {
     public static void main(String[] args) throws IOException, ParserConfigurationException, TransformerException {
         File settingsFile = new File("C:\\GcstMapDownloader\\Settings.xml");
 
