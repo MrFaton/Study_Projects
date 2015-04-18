@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

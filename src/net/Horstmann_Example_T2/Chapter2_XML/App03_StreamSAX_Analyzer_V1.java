@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

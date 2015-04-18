@@ -1,6 +1,6 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
-import net.Horstmann_Example_T2.Chapter2.Files.Card;
+import net.Horstmann_Example_T2.Chapter2_XML.Files.Card;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -13,12 +13,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,8 +34,8 @@ public class App07_XML_DOM_Writer_V2 {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, ParserConfigurationException,
             SAXException, TransformerException {
-        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\CardList.ser");
-        outputXML1 = Paths.get(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\XML2(recorded_by_App07).xml");
+        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\CardList.ser");
+        outputXML1 = Paths.get(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\XML2(recorded_by_App07).xml");
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(cardListFile));
         ArrayList<Card> listOfCards = (ArrayList) in.readObject();
         in.close();

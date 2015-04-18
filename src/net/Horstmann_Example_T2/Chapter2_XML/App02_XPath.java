@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class App02_XPath {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\TestPage1In.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\TestPage1In.xml");
         //эти объекты нужны для того, чтобы получить экземпляр класса Document, который обрабатывает наш XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();

@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +18,7 @@ public class App01_XML_DOM_Analyzer_V2 {
 
     public static void main(String[] args) throws ParserConfigurationException {
         Document doc = null;
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\TestPage1In.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\TestPage1In.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         //активируем проверку xml документа на соответствие DTD определениям. Это позволяет подавлять все разделители
         factory.setValidating(true);

@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -22,7 +22,7 @@ public class App00_XML_DOM_Analyzer_V1 {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         //получаем файл и на остновании DocumentBuilder и файла XML строим объект Document
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\XML_test.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\XML_test.xml");
         Document doc = builder.parse(file);
         //из Document получаем объект Element - это корневой узел во всём XML документе (в него входят все остальные)
         Element root = doc.getDocumentElement();

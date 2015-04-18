@@ -1,6 +1,6 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
-import net.Horstmann_Example_T2.Chapter2.Files.Card;
+import net.Horstmann_Example_T2.Chapter2_XML.Files.Card;
 
 import java.io.*;
 import javax.xml.stream.*;
@@ -16,8 +16,8 @@ public class App08_XML_StAX_Writer {
     private static XMLStreamWriter writer;
 
     public static void main(String[] args) throws IOException, XMLStreamException, ClassNotFoundException {
-        outputXML = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\XML3(recorded_by_App08).xml");
-        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\CardList.ser");
+        outputXML = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\XML3(recorded_by_App08).xml");
+        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\CardList.ser");
         //создаём фабрику и поток вывода в файл
         factory = XMLOutputFactory.newInstance();
         writer = factory.createXMLStreamWriter(new BufferedOutputStream(new FileOutputStream(outputXML)));

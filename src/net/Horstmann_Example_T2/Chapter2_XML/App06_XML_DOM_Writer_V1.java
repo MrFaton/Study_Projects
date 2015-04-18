@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -7,7 +7,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import net.Horstmann_Example_T2.Chapter2.Files.Card;
+import net.Horstmann_Example_T2.Chapter2_XML.Files.Card;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -30,8 +30,8 @@ public class App06_XML_DOM_Writer_V1 {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, ParserConfigurationException,
             SAXException, TransformerException {
-        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\CardList.ser");
-        outputXML1 = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\XML1(recorded_by_App06).xml");
+        cardListFile = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\CardList.ser");
+        outputXML1 = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\XML1(recorded_by_App06).xml");
         //восстанавливаем список наших карт из сериализированного файла
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(cardListFile));
         ArrayList<Card> listOfCards = (ArrayList) in.readObject();

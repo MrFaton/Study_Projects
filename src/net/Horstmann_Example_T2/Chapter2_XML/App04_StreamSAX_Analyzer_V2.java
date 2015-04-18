@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -8,7 +8,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
-import java.net.URL;
 
 /**
  * Created by root on 16.02.2015.
@@ -17,7 +16,7 @@ public class App04_StreamSAX_Analyzer_V2 {
     public static int count = -1;
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\TestPage1In.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\TestPage1In.xml");
 
 
         DefaultHandler myHandler = new DefaultHandler() {

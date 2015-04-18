@@ -1,9 +1,8 @@
-package net.Horstmann_Example_T2.Chapter2.Files;
+package net.Horstmann_Example_T2.Chapter2_XML.Files;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by root on 16.02.2015.
@@ -57,7 +56,7 @@ public class Card implements Serializable {
 
 
 class TestCard {
-    public static File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\CardList.ser");
+    public static File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\CardList.ser");
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 //        List<Card> list = new ArrayList<>(5);

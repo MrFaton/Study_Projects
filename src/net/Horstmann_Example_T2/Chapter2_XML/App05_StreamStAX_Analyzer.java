@@ -1,4 +1,4 @@
-package net.Horstmann_Example_T2.Chapter2;
+package net.Horstmann_Example_T2.Chapter2_XML;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -13,7 +13,7 @@ public class App05_StreamStAX_Analyzer {
     public static int count = -1;
 
     public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2\\Files\\TestPage1In.xml");
+        File file = new File(System.getProperty("user.dir") + "\\src\\net\\Horstmann_Example_T2\\Chapter2_XML\\Files\\TestPage1In.xml");
         InputStream in = new BufferedInputStream(new FileInputStream(file));
         XMLInputFactory factory = XMLInputFactory.newFactory();
         XMLStreamReader reader = factory.createXMLStreamReader(in);
