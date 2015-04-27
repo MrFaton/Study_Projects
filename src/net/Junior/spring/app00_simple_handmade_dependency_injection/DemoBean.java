@@ -10,3 +10,6 @@ public interface DemoBean {
 
     public void printY();
 }
+/*
+Интерфейс, который мы везде используем
+ */

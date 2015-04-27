@@ -20,3 +20,6 @@ public class DemoBeanA implements DemoBean {
         System.out.println(y);
     }
 }
+/*
+Реализует интерфейс DemoBean
+ */
