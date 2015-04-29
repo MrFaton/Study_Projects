@@ -1,0 +1,7 @@
+В этом пакете будем работать при помощи spring.
+
+Для работы этого пакета нам необходим полный spring core, а именно:
+spring-core
+spring-beans
+spring-context
+spring-expression
