@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="BeanTypeA"
+          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_Impl_A"/>
+    <bean id="BeanTypeB"
+          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_Impl_B"/>
+</beans>
