@@ -6,5 +6,5 @@
     <bean id="BeanTypeA"
           class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_Impl_A"/>
     <bean id="BeanTypeB"
-          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_Impl_B"/>
+          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_Impl_BB"/>
 </beans>
