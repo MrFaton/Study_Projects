@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+    <bean id="SomeAPI_Impl" class="net.Junior.spring.app03_spring_aop_simple.api.impl.SomeAPI_ImplA" scope="singleton"/>
+
+    <bean id="aspect-simple-logger" class="net.Junior.spring.app03_spring_aop_simple.aspect.SimpleLogger"/>
+
+    <aop:config>
+        <aop:aspect ref="aspect-simple-logger">
+            <aop:pointcut id="any-method-in-package"
+                          expression="execution(* net.Junior.spring.app03_spring_aop_simple..*(..))"/>
+            <aop:around pointcut-ref="any-method-in-package" method="log"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
+        <!--
+        Описание шаблонов:
+        All parts except the returning type pattern (ret-type-pattern in the snippet above), name pattern,
+        and parameters pattern are optional. The returning type pattern determines what the return type of the method
+        must be in order for a join point to be matched. Most frequently you will use * as the returning type pattern,
+        which matches any return type. A fully-qualified type name will match only when the method returns the given
+        type. The name pattern matches the method name. You can use the * wildcard as all or part of a name pattern.
+        The parameters pattern is slightly more complex: () matches a method that takes no parameters, whereas (..)
+        matches any number of parameters (zero or more). The pattern (*) matches a method taking one parameter of any
+        type, (*,String) matches a method taking two parameters, the first can be of any type, the second must be a
+        String. Consult the Language Semantics section of the AspectJ Programming Guide for more information.
+
+Some examples of common pointcut expressions are given below.
+
+    the execution of any public method:
+execution(public * *(..))
+
+    the execution of any method with a name beginning with "set":
+execution(* set*(..))
+
+    the execution of any method defined by the AccountService interface:
+execution(* com.xyz.service.AccountService.*(..))
+
+    the execution of any method defined in the service package:
+execution(* com.xyz.service.*.*(..))
+
+    the execution of any method defined in the service package or a sub-package:
+execution(* com.xyz.service..*.*(..))
+
+    any join point (method execution only in Spring AOP) within the service package:
+within(com.xyz.service.*)
+
+    any join point (method execution only in Spring AOP) within the service package or a sub-package:
+within(com.xyz.service..*)
+
+    any join point (method execution only in Spring AOP) where the proxy implements the AccountService interface:
+this(com.xyz.service.AccountService)
+        -->
