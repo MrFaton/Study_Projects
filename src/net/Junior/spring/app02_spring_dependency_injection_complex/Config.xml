@@ -3,8 +3,47 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="WorkerBeanTypeA"
-          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_ImplA"/>
+    <!--устанавливаем связь между именем бина (его ид) и классом, которому он соответствует-->
+    <bean id="WorkerBeanTypeA1"
+          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_ImplA">
+        <constructor-arg name="x" value="10"/><!--устанавливаем аргументы конструктора-->
+        <constructor-arg name="y" value="15"/><!--устанавливаем аргументы конструктора-->
+        <property name="arrNumbers"><!--вызываем сеттер и передаём ему массив-->
+            <array><!--определяем новый массив-->
+                <value>1</value><!--устанавливаем в массив элементы-->
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+                <value>5</value>
+            </array>
+        </property>
+        <property name="map"><!--вызываем сеттер для мапы-->
+            <map><!--создаём новую мапу-->
+                <entry key="key-0" value="q"/><!--добавляем в неё ключ и значение-->
+                <entry key="key-1" value="w"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="WorkerBeanTypeA2"
+          class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_ImplA">
+        <constructor-arg name="x" value="1000"/>
+        <constructor-arg name="y" value="1500"/>
+        <property name="arrNumbers">
+            <array>
+                <value>6</value>
+                <value>7</value>
+                <value>8</value>
+                <value>9</value>
+                <value>10</value>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key-2" value="qqq"/>
+                <entry key="key-3" value="www"/>
+            </map>
+        </property>
+    </bean>
     <bean id="WorkerBeanTypeB"
           class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_ImplB"/>
 </beans>

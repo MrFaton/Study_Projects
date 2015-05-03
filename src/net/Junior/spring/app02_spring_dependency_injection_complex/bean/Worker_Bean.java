@@ -7,4 +7,13 @@ public interface Worker_Bean {
     public void doSomething();
 
     public void printNumber();
+
+    public void printArrNumbers();
+
+    public void printMap();
+
+    public void printCoordinates();
 }
+/*
+Наш интерфейс, который мы используем
+ */

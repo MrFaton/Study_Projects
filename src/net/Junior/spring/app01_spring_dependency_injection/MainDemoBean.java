@@ -5,7 +5,7 @@ package net.Junior.spring.app01_spring_dependency_injection;
  */
 public class MainDemoBean extends DependencyInjector {
     @Inject("MyDemoBean")
-    private DemoBean demoBean = new DemoBeanImplA();
+    private DemoBean demoBean;
 
     public void begin() {
         demoBean.printX();
@@ -13,3 +13,6 @@ public class MainDemoBean extends DependencyInjector {
         demoBean.saySomething();
     }
 }
+/*
+Класс, который использует интерфейс, в который будет инъекцироваться зависимость
+ */

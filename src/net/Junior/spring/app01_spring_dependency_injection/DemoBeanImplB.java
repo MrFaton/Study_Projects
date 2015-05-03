@@ -21,5 +21,5 @@ public class DemoBeanImplB implements DemoBean {
     }
 }
 /*
-Реализует интерфейс DemoBean
+Второй вариант реализации интерфейса DemoBean
  */
