@@ -8,7 +8,7 @@ import net.Junior.spring.app03_spring_aop_simple.entity.DependencyInjector;
  */
 public class WorkerWhoUsesAPI extends DependencyInjector {
     @Inject("SomeAPI_Impl")
-    private SomeAPI someAPI;
+    private Some_API someAPI;
 
     public void useApi() {
         someAPI.sayHi();

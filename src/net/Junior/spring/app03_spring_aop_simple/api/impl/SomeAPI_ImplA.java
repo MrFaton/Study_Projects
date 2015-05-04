@@ -1,11 +1,11 @@
 package net.Junior.spring.app03_spring_aop_simple.api.impl;
 
-import net.Junior.spring.app03_spring_aop_simple.api.SomeAPI;
+import net.Junior.spring.app03_spring_aop_simple.api.Some_API;
 
 /**
  * Created by root on 03.05.2015.
  */
-public class SomeAPI_ImplA implements SomeAPI {
+public class SomeAPI_ImplA implements Some_API {
     @Override
     public void sayHi() {
         System.out.println("Hi to all");
