@@ -1,7 +1,7 @@
 package net.Junior.spring.app03_spring_aop_simple.api;
 
 /**
- * Created by Mr_Faton on 03.05.2015.
+ * Created by root on 03.05.2015.
  */
 public interface SomeAPI {
     public void sayHi();
