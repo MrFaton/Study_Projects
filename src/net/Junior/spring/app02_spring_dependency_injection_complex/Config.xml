@@ -6,11 +6,14 @@
     <!--устанавливаем связь между именем бина (его ид) и классом, которому он соответствует-->
     <bean id="WorkerBeanTypeA1"
           class="net.Junior.spring.app02_spring_dependency_injection_complex.bean.implementation.Worker_Bean_ImplA">
-        <constructor-arg name="x" value="10"/><!--устанавливаем аргументы конструктора-->
-        <constructor-arg name="y" value="15"/><!--устанавливаем аргументы конструктора-->
+        <constructor-arg name="x" value="10"/>
+        <!--устанавливаем аргументы конструктора-->
+        <constructor-arg name="y" value="15"/>
+        <!--устанавливаем аргументы конструктора-->
         <property name="arrNumbers"><!--вызываем сеттер и передаём ему массив-->
             <array><!--определяем новый массив-->
-                <value>1</value><!--устанавливаем в массив элементы-->
+                <value>1</value>
+                <!--устанавливаем в массив элементы-->
                 <value>2</value>
                 <value>3</value>
                 <value>4</value>
@@ -19,7 +22,8 @@
         </property>
         <property name="map"><!--вызываем сеттер для мапы-->
             <map><!--создаём новую мапу-->
-                <entry key="key-0" value="q"/><!--добавляем в неё ключ и значение-->
+                <entry key="key-0" value="q"/>
+                <!--добавляем в неё ключ и значение-->
                 <entry key="key-1" value="w"/>
             </map>
         </property>

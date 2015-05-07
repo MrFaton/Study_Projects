@@ -27,3 +27,6 @@ public class SomeAPI_ImplA implements Some_API {
         }
     }
 }
+/*
+Имплементация нашего интефейса
+ */

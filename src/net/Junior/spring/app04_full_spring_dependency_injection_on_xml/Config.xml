@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+    <bean id="BaseBean"
+          class="net.Junior.spring.app04_full_spring_dependency_injection_on_xml.bean.impl.DefaultBaseBean"/>
+
+    <bean id="Foo" class="net.Junior.spring.app04_full_spring_dependency_injection_on_xml.entity.Foo">
+        <property name="baseBean" ref="BaseBean"/>
+    </bean>
+
+    <bean id="aspect-logger"
+          class="net.Junior.spring.app04_full_spring_dependency_injection_on_xml.aspect.SimpleLogger"/>
+    <bean id="aspect-exception-logger"
+          class="net.Junior.spring.app04_full_spring_dependency_injection_on_xml.aspect.ExceptionLogger"/>
+
+    <aop:config>
+        <aop:aspect ref="aspect-logger">
+            <aop:pointcut id="log-any-method"
+                          expression="execution(* net.Junior.spring.app04_full_spring_dependency_injection_on_xml..*(..))"/>
+            <aop:around pointcut-ref="log-any-method" method="log"/>
+        </aop:aspect>
+
+        <aop:aspect ref="aspect-exception-logger">
+            <aop:pointcut id="log-any-exception" expression="execution(public * *(..))"/>
+            <aop:after-throwing pointcut-ref="log-any-exception" method="logException" throwing="throwable"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

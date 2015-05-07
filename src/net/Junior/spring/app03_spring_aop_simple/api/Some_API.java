@@ -10,3 +10,6 @@ public interface Some_API {
 
     public void echo(String text, int count);
 }
+/*
+Интерфейс, который мы используем
+ */

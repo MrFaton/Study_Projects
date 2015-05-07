@@ -1,6 +1,5 @@
 package net.Junior.spring.app02_spring_dependency_injection_complex;
 
-import net.Junior.spring.app02_spring_dependency_injection_complex.bean.Master_Bean;
 import net.Junior.spring.app02_spring_dependency_injection_complex.bean.Slave_Bean;
 
 /**
