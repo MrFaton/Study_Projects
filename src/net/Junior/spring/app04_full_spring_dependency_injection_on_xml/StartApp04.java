@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class StartApp04 {
     public static void main(String[] args) {
-        ApplicationContext applicationContext =
+        final ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("net\\Junior\\spring\\app04_full_spring_dependency_injection_on_xml\\Config.xml");
         new Thread(new Runnable() {
             @Override
