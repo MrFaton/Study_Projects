@@ -1,6 +1,6 @@
-package net.Junior.jdbc.app00_mysql_simple;
+package net.Junior.jdbc.pack00_mysql_simple;
 
-import net.Junior.jdbc.app00_mysql_simple.my_driver.SuperDB_Driver0;
+import net.Junior.jdbc.pack00_mysql_simple.my_driver.SuperDB_Driver0;
 
 import java.sql.Connection;
 import java.sql.Driver;

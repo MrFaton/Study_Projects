@@ -1,4 +1,4 @@
-package net.Junior.jdbc.app00_mysql_simple;
+package net.Junior.jdbc.pack00_mysql_simple;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -14,7 +14,7 @@ public class App04 {
             "jdbc:mysql://127.0.0.1:3306/my_test_db?user=Mr_Faton&password=123";
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Class.forName("net.Junior.jdbc.app00_mysql_simple.my_driver.SuperDB_Driver1");
+        Class.forName("net.Junior.jdbc.pack00_mysql_simple.my_driver.SuperDB_Driver1");
 
         Enumeration<Driver> iter = DriverManager.getDrivers();
         while (iter.hasMoreElements()) {

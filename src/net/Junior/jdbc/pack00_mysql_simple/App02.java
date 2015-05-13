@@ -1,4 +1,4 @@
-package net.Junior.jdbc.app00_mysql_simple;
+package net.Junior.jdbc.pack00_mysql_simple;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -38,7 +38,7 @@ com.mysql.jdbc.JDBC4Connection@2d8e6db6
 Exception in thread "main" java.sql.SQLException: No suitable driver found for some bad url
 	at java.sql.DriverManager.getConnection(DriverManager.java:689)
 	at java.sql.DriverManager.getConnection(DriverManager.java:270)
-	at net.Junior.jdbc.app00_mysql_simple.App02_MySQLExample_2.main(App02_MySQLExample_2.java:27)
+	at net.Junior.jdbc.pack00_mysql_simple.App02_MySQLExample_2.main(App02_MySQLExample_2.java:27)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

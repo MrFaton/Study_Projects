@@ -1,4 +1,4 @@
-package net.Junior.jdbc.app00_mysql_simple;
+package net.Junior.jdbc.pack00_mysql_simple;
 
 import java.sql.SQLException;
 import java.util.Properties;

@@ -1,4 +1,4 @@
-package net.Junior.jdbc.app00_mysql_simple.my_driver;
+package net.Junior.jdbc.pack00_mysql_simple.my_driver;
 
 import java.sql.*;
 import java.util.Map;
