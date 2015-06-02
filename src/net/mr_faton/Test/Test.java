@@ -1,16 +1,11 @@
 package net.mr_faton.Test;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-import org.springframework.stereotype.Component;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-@Component
 public class Test {
-    private App app;
     public static void main(String[] args) {
-
+        Calendar calendar = new GregorianCalendar(2015, 5, 10, 20, 47, 53);
+        System.out.println(calendar.getTimeInMillis());
     }
-
 }
