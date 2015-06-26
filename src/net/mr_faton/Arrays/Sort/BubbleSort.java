@@ -17,7 +17,7 @@ public class BubbleSort {
 
     public static void bubbleSortIter(int[] data) {
         for (int x = data.length - 1; x >= 0; x--) {
-            for (int i = 0; i < data.length - 1; i++) {
+            for (int i = 0; i < x; i++) {
                 if (data[i] > data[i + 1]) {
                     int temp = data[i];
                     data[i] = data[i + 1];

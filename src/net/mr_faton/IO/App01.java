@@ -25,6 +25,6 @@ public class App01 {
         System.out.println("String: " + str);
         System.out.println("String.length: " + str.length()); //метод длина строки иногда врёт, как, например для кодепоинта (символа) с номером 165000, для его отображение нужно 2 чара, поэтому есть метод codePointCount, который показывает длину символов
         System.out.println("String.codePointCount: " + str.codePointCount(0, str.length()));
-        System.out.println();
+        System.out.println("\u20AC");
     }
 }

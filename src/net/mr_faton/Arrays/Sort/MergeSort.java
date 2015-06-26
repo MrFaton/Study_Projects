@@ -34,7 +34,7 @@ public class MergeSort {
 
     public static void sortArr(int[] arr) {
         for (int x = arr.length - 1; x >= 0; x--) {
-            for (int i = 0; i < arr.length - 1; i++) {
+            for (int i = 0; i < x; i++) {
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i];
                     arr[i] = arr[i + 1];

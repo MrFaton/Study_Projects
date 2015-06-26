@@ -1,11 +1,12 @@
 package net.Junior.jsf.app00_simple;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.ManagedBean;
+//import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
 
-@ManagedBean
-@RequestScoped
+//
+//@ManagedBean
+//@RequestScoped
 public class Greeting implements Serializable{
     private String text1 = "default input";
     private String text2;
