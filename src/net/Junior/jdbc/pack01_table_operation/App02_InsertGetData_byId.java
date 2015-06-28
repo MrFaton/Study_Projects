@@ -6,10 +6,10 @@ import java.sql.*;
  * Created by Mr_Faton on 13.05.2015.
  */
 public class App02_InsertGetData_byId {
-    public static final String JDBC_URL =
-            "jdbc:mysql://127.0.0.1:3306/my_test_db?user=Mr_Faton&password=123";//DB at my home
-    //    public static final String JDBC_URL =
-//            "jdbc:mysql://192.168.101.1:3306/my_test_db?user=Mr_Faton&password=123";//DB at my work
+//    public static final String JDBC_URL =
+//            "jdbc:mysql://127.0.0.1:3306/my_test_db?user=Mr_Faton&password=123";//DB at my home
+        public static final String JDBC_URL =
+            "jdbc:mysql://192.168.101.1:3306/my_test_db?user=Mr_Faton&password=123";//DB at my work
 
     public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager.getConnection(JDBC_URL)) {
@@ -22,10 +22,12 @@ public class App02_InsertGetData_byId {
              */
             //заполнить таблицу, вставить данные
             stmt.executeUpdate("DROP TABLE IF EXISTS temp_table");
-            stmt.executeUpdate("CREATE TABLE temp_table (id INT, name VARCHAR (64))");
+            stmt.executeUpdate("CREATE TABLE temp_table (id INT, name VARCHAR (64), PRIMARY KEY(id))");
             stmt.executeUpdate("INSERT INTO temp_table (id, name) VALUES (1, 'Alex')");
             stmt.executeUpdate("INSERT INTO temp_table (id, name) VALUES (2, 'Judi')");//правильней делать executeUpdate
             stmt.execute("INSERT INTO temp_table (id, name) VALUES (3, 'Mike')");//можно и так, но лучше executeUpdate
+            String ttt = null;
+            stmt.executeUpdate("UPDATE my_test_db.temp_table SET name='" + ttt + "' WHERE id=2;");
 
             //получить данные из таблицы
             ResultSet resultSet = stmt.executeQuery("SELECT id, name FROM temp_table");
