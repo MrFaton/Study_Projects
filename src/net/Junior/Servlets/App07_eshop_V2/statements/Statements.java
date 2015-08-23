@@ -15,4 +15,6 @@ public interface Statements {
     static final Long PARAM_SESSION_EXPIRATION = 2 * 60 * 1000L; // это преобразование 2 мин в миллисекунды
     //если в хранилище нет сессий, то сколько будет спать поток-очиститель сессии, перед тем, как будет проверять сессии в хранилище
     static final Long PARAM_SLEEP_TIME = 30_000L;
+
+    static final String PARAM_ID = "id";
 }
