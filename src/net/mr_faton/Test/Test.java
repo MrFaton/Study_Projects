@@ -5,7 +5,11 @@ import java.util.Collection;
 
 public class Test {
     public static void main(String[] args) {
-        Boolean bo = new Boolean("/true");
-        System.out.println(bo);
+        int x = 0xbc7;
+        System.out.println(x);
+        x = 0b110111;
+        System.out.println(x);
+        x = 0754;
+        System.out.println(x);
     }
 }
